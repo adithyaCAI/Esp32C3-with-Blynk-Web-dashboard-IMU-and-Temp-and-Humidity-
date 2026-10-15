@@ -1,0 +1,41 @@
+sequenceDiagram
+  participant Boot as app_main and app_start
+  participant Network as Wi-Fi network service
+  participant Sensors as sensor_service_task
+  participant MPU as MPU6050 on I2C GPIO 2 and 3
+  participant DHT as DHT22 on GPIO 1
+  participant Filter as orientation filter
+  participant Telemetry as telemetry service and queue
+  participant Worker as blynk_publish worker
+  participant Blynk as Blynk HTTPS batch endpoint
+
+  Boot->>Network: Start Wi-Fi station
+  Boot->>Sensors: Create sensor_service_task through OSAL
+  Sensors->>MPU: Initialize I2C bus and verify device at 0x68
+  Sensors->>DHT: Configure DHT22 data GPIO
+  Sensors->>Telemetry: Initialize HTTPS client and publisher worker
+  Telemetry->>Worker: Create worker task and snapshot queue
+  loop Sensor task checks schedules with 1 ms yield
+    Sensors->>MPU: Read acceleration and gyro at 2000 ms cadence
+    alt MPU sample valid
+      Sensors->>Filter: Integrate gyro and correct tilt from acceleration
+    else MPU sample invalid
+      Sensors-->>Sensors: Keep prior valid motion sample
+    end
+    Sensors->>DHT: Read temperature and humidity at 2000 ms cadence
+    Sensors-->>Sensors: Report current readings and validity
+    alt Publish deadline due and both sensor samples valid
+      Sensors->>Network: Check current Wi-Fi IP connection
+      alt Wi-Fi connected
+        Sensors->>Telemetry: Submit snapshot for mapping and queueing
+        Telemetry->>Worker: Deliver snapshot through queue
+        Worker->>Worker: Build URL with token and virtual pins V0–V7
+        Worker->>Blynk: HTTPS GET batch update
+        Blynk-->>Worker: HTTP response status
+      else Wi-Fi disconnected
+        Sensors-->>Sensors: Skip publishing this interval
+      end
+    else Deadline not due or readings invalid
+      Sensors-->>Sensors: Continue acquisition loop without publishing
+    end
+  end

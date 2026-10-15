@@ -1,0 +1,25 @@
+flowchart LR
+    boot(["Boot / app_main"])
+    sensor_service("Task sensor_service")
+    osal_task_entry("Task osal_task_entry")
+    task("Task task")
+    blynk_publish("Task blynk_publish")
+    mpu6050_i2c["MPU6050 I2C Device"]
+    wifi["WiFi"]
+    storage_manager["Storage Manager"]
+    event_handler["Event Handler"]
+    http_client["HTTP"]
+    boot -->|spawns| sensor_service
+    boot -->|spawns| osal_task_entry
+    boot -->|spawns| task
+    boot -->|spawns| blynk_publish
+    boot -->|initializes| mpu6050_i2c
+    boot -->|starts| wifi
+    boot -->|initializes| storage_manager
+    boot -->|initializes| event_handler
+    boot -->|initializes| http_client
+    sensor_service -->|reads| mpu6050_i2c
+    sensor_service -->|depends_on| wifi
+    sensor_service -->|publishes| blynk_publish
+    blynk_publish -->|depends_on| http_client
+    event_handler -->|drives| wifi

@@ -1,0 +1,12 @@
+# ESP-IDF build artifacts (never ship these in a source package)
+build/
+managed_components/
+sdkconfig.old
+firmware/configs/app_secrets.h
+*.bin
+*.elf
+*.map
+
+# Firmgen
+.firmgen_sources
+.refact/

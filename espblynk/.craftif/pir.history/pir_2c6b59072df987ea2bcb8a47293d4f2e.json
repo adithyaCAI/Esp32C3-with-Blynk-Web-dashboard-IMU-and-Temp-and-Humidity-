@@ -1,0 +1,1259 @@
+{
+  "schema_version": "2.1.0",
+  "id": "pir_espblynk",
+  "revision": "2c6b59072df987ea2bcb8a47293d4f2e",
+  "provenance": {
+    "project_path": "C:\\Users\\Adith\\Downloads\\Firmgen projects\\Firmgen projects\\10-10-26\\espdev\\espblynk\\espblynk",
+    "chat_id": "9c114c52-e013-4db0-a607-5f4ab23d95e9",
+    "revision": "2c6b59072df987ea2bcb8a47293d4f2e",
+    "generated_at_ms": 1792043053227,
+    "analyzer_version": "pir_maker-static-0.13.0",
+    "analyzed_files": [
+      "CMakeLists.txt",
+      "firmware/app/app.c",
+      "firmware/app/app.h",
+      "firmware/bsp/board.c",
+      "firmware/bsp/board.h",
+      "firmware/configs/app_config.h",
+      "firmware/configs/build_config.h",
+      "firmware/configs/feature_config.h",
+      "firmware/configs/platform_config.h",
+      "firmware/interfaces/sensor_if.h",
+      "firmware/modules/orientation/orientation.c",
+      "firmware/modules/orientation/orientation.h",
+      "firmware/osal/osal.h",
+      "firmware/platforms/esp32/osal_freertos.c",
+      "firmware/platforms/esp32/sensor_platform.c",
+      "firmware/services/sensor_service.c",
+      "firmware/services/sensor_service.h",
+      "firmware/utils/helpers/helpers.c",
+      "firmware/utils/helpers/helpers.h",
+      "firmware/utils/logger/logger.c",
+      "firmware/utils/logger/logger.h",
+      "main/entry.c",
+      "sdkconfig",
+      "sdkconfig.defaults"
+    ],
+    "file_hashes": {
+      "firmware/utils/helpers/helpers.c": "914568ab7415fec17e74f306cbb5ae09",
+      "main/entry.c": "86aaa3bc61772628c601798f4d9dea56",
+      "sdkconfig.defaults": "bb2b229b3fb1b8cd16dcf6927e49300a",
+      "firmware/app/app.h": "ebc6cfe87fb8e2ab299633dd7a067f3b",
+      "firmware/services/sensor_service.c": "6ece0287cfbf45452a31ffdbda596b7a",
+      "firmware/configs/feature_config.h": "08ef51c6dfb8aa157bd736ea8388e0ba",
+      "firmware/app/app.c": "4e39c5213b0db833319a7a106969f0d1",
+      "firmware/configs/app_config.h": "27f910f7e1a52ad7356b109f4647209a",
+      "firmware/modules/orientation/orientation.h": "7df58e748fe0051c98fffe648f698af6",
+      "firmware/osal/osal.h": "9e93e5096d971aa31beb162503c0e4f3",
+      "firmware/platforms/esp32/sensor_platform.c": "68e3c0f838bc1f140508cc09d56a4e22",
+      "firmware/utils/logger/logger.h": "2c284c641c88c6a4fff52db62e8d1ea5",
+      "firmware/utils/logger/logger.c": "8e992fef35c9a4678ec38e60902d741d",
+      "firmware/configs/build_config.h": "dd997e9a0a461df28c370a61963fd7e5",
+      "firmware/configs/platform_config.h": "010b01144dbd2d3fb63f3053b158ab7a",
+      "firmware/platforms/esp32/osal_freertos.c": "d2293854defd35386e57d611d2ac10fc",
+      "CMakeLists.txt": "3d7870a5a593d463811fc4101cacb2f5",
+      "firmware/interfaces/sensor_if.h": "706251c3d4a2f5e270baa5d22f5fc3ec",
+      "firmware/bsp/board.h": "056a67182b2f5e284f28b942cbdfb5b0",
+      "firmware/utils/helpers/helpers.h": "ec8b635b7e5b55f8aeb8f47c3ff34312",
+      "firmware/bsp/board.c": "80dbd67c63e90f650faf231b4e68116e",
+      "sdkconfig": "43ced4c80786db41c3827e01aa0f4eba",
+      "firmware/modules/orientation/orientation.c": "129b34aa0c021a717a96357507e4b16d",
+      "firmware/services/sensor_service.h": "3d6c60b0ef16b328de0524bc56991258"
+    },
+    "board_id": "ESP32-C3-DevKitM-1",
+    "target_chip": "esp32c3",
+    "config_hash": "sdkconfig.defaults:bb2b229b3fb1b8cd16dcf6927e49300a|sdkconfig:43ced4c80786db41c3827e01aa0f4eba",
+    "feature_flags": "mode=hybrid;refine=true"
+  },
+  "approval": {
+    "status": "stale"
+  },
+  "nodes": [
+    {
+      "id": "boot",
+      "node_type": "system_init",
+      "label": "Boot / app_main",
+      "properties": {
+        "target": "esp32c3"
+      },
+      "source_refs": [
+        {
+          "file": "main/entry.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "2c6b59072df987ea2bcb8a47293d4f2e"
+      },
+      "ownership": {
+        "primary_files": [
+          "main/entry.c"
+        ]
+      },
+      "editable_fields": [
+        "log_level"
+      ],
+      "layer": "system",
+      "ai_summary": "Bootstraps firmware startup and initializes core subsystems.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "sensor_service",
+      "node_type": "rtos_task",
+      "label": "Task sensor_service",
+      "properties": {
+        "task_name": "sensor_service",
+        "priority": 5,
+        "stack_size": 4096,
+        "period_ms": 0.0
+      },
+      "source_refs": [
+        {
+          "file": "firmware/app/app.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "2c6b59072df987ea2bcb8a47293d4f2e"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/app/app.c"
+        ]
+      },
+      "editable_fields": [
+        "task_name",
+        "priority",
+        "stack_size",
+        "period_ms"
+      ],
+      "layer": "runtime",
+      "ai_summary": "Executes RTOS loop logic for sensor_service.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "osal_task_entry",
+      "node_type": "rtos_task",
+      "label": "Task osal_task_entry",
+      "properties": {
+        "task_name": "osal_task_entry",
+        "priority": 5,
+        "stack_size": 4096,
+        "period_ms": 0.0
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "2c6b59072df987ea2bcb8a47293d4f2e"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/esp32/osal_freertos.c"
+        ]
+      },
+      "editable_fields": [
+        "task_name",
+        "priority",
+        "stack_size",
+        "period_ms"
+      ],
+      "layer": "runtime",
+      "ai_summary": "Executes RTOS loop logic for osal_task_entry.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "task",
+      "node_type": "rtos_task",
+      "label": "Task task",
+      "properties": {
+        "task_name": "task",
+        "priority": 5,
+        "stack_size": 4096,
+        "period_ms": 0.0
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "2c6b59072df987ea2bcb8a47293d4f2e"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/esp32/osal_freertos.c"
+        ]
+      },
+      "editable_fields": [
+        "task_name",
+        "priority",
+        "stack_size",
+        "period_ms"
+      ],
+      "layer": "runtime",
+      "ai_summary": "Executes RTOS loop logic for task.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "mpu6050_i2c",
+      "node_type": "i2c_device",
+      "label": "MPU6050 I2C Device",
+      "properties": {
+        "address": "(0x68U)",
+        "clock_hz": 100000
+      },
+      "source_refs": [
+        {
+          "file": "firmware/configs/app_config.h",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "2c6b59072df987ea2bcb8a47293d4f2e"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/configs/app_config.h"
+        ]
+      },
+      "editable_fields": [
+        "sda_pin",
+        "scl_pin",
+        "address",
+        "clock_hz"
+      ],
+      "layer": "physical",
+      "ai_summary": "Represents an I2C peripheral with mapped bus pins.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_boot_sensor_service_spawns",
+      "source_node_id": "boot",
+      "target_node_id": "sensor_service",
+      "kind": "execution",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/app/app.c",
+          "line": 24,
+          "symbol": "sensor_service",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "spawns",
+      "validated": false
+    },
+    {
+      "id": "e_boot_osal_task_entry_spawns",
+      "source_node_id": "boot",
+      "target_node_id": "osal_task_entry",
+      "kind": "execution",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 74,
+          "symbol": "osal_task_entry",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "spawns",
+      "validated": false
+    },
+    {
+      "id": "e_boot_task_spawns",
+      "source_node_id": "boot",
+      "target_node_id": "task",
+      "kind": "execution",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 74,
+          "symbol": "task",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "spawns",
+      "validated": false
+    },
+    {
+      "id": "e_boot_mpu6050_i2c_initializes",
+      "source_node_id": "boot",
+      "target_node_id": "mpu6050_i2c",
+      "kind": "hardware",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/configs/app_config.h",
+          "symbol": "MPU6050 I2C Device",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "initializes",
+      "validated": false
+    },
+    {
+      "id": "e_sensor_service_reads_mpu6050_i2c",
+      "source_node_id": "sensor_service",
+      "target_node_id": "mpu6050_i2c",
+      "kind": "hardware",
+      "confidence": 0.98,
+      "source_refs": [
+        {
+          "file": "firmware/services/sensor_service.c",
+          "line": 48,
+          "symbol": "sensor_service_task",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        },
+        {
+          "file": "firmware/platforms/esp32/sensor_platform.c",
+          "line": 252,
+          "symbol": "sensor_if_mpu6050_read",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "reads",
+      "validated": false
+    }
+  ],
+  "layers": {
+    "physical": [
+      "mpu6050_i2c"
+    ],
+    "runtime": [
+      "sensor_service",
+      "osal_task_entry",
+      "task"
+    ],
+    "network": [],
+    "system": [
+      "boot"
+    ]
+  },
+  "partitions": [],
+  "components": [
+    {
+      "id": "main",
+      "path": "main/CMakeLists.txt",
+      "requires": [
+        "esp_driver_gpio",
+        "esp_driver_i2c",
+        "esp_rom",
+        "esp_timer",
+        "esp_wifi",
+        "esp_event",
+        "nvs_flash",
+        "freertos",
+        "log"
+      ],
+      "source_files": []
+    }
+  ],
+  "modules": [
+    {
+      "id": "app",
+      "label": "app",
+      "path": "app",
+      "kind": "application",
+      "files": [
+        "firmware/app/app.c",
+        "firmware/app/app.h"
+      ]
+    },
+    {
+      "id": "bsp",
+      "label": "bsp",
+      "path": "bsp",
+      "kind": "board",
+      "files": [
+        "firmware/bsp/board.c",
+        "firmware/bsp/board.h"
+      ]
+    },
+    {
+      "id": "configs",
+      "label": "configs",
+      "path": "configs",
+      "kind": "configuration",
+      "files": [
+        "firmware/configs/app_config.h",
+        "firmware/configs/build_config.h",
+        "firmware/configs/feature_config.h",
+        "firmware/configs/platform_config.h"
+      ]
+    },
+    {
+      "id": "interfaces",
+      "label": "interfaces",
+      "path": "interfaces",
+      "kind": "module",
+      "files": [
+        "firmware/interfaces/sensor_if.h"
+      ]
+    },
+    {
+      "id": "main",
+      "label": "main",
+      "path": "main",
+      "kind": "entrypoint",
+      "files": [
+        "main/entry.c"
+      ]
+    },
+    {
+      "id": "modules_orientation",
+      "label": "modules/orientation",
+      "path": "modules/orientation",
+      "kind": "module",
+      "files": [
+        "firmware/modules/orientation/orientation.c",
+        "firmware/modules/orientation/orientation.h"
+      ]
+    },
+    {
+      "id": "osal",
+      "label": "osal",
+      "path": "osal",
+      "kind": "abstraction",
+      "files": [
+        "firmware/osal/osal.h"
+      ]
+    },
+    {
+      "id": "platforms_esp32",
+      "label": "platforms/esp32",
+      "path": "platforms/esp32",
+      "kind": "platform",
+      "files": [
+        "firmware/platforms/esp32/osal_freertos.c",
+        "firmware/platforms/esp32/sensor_platform.c"
+      ]
+    },
+    {
+      "id": "services",
+      "label": "services",
+      "path": "services",
+      "kind": "module",
+      "files": [
+        "firmware/services/sensor_service.c",
+        "firmware/services/sensor_service.h"
+      ]
+    },
+    {
+      "id": "utils_helpers",
+      "label": "utils/helpers",
+      "path": "utils/helpers",
+      "kind": "utility",
+      "files": [
+        "firmware/utils/helpers/helpers.c",
+        "firmware/utils/helpers/helpers.h"
+      ]
+    },
+    {
+      "id": "utils_logger",
+      "label": "utils/logger",
+      "path": "utils/logger",
+      "kind": "utility",
+      "files": [
+        "firmware/utils/logger/logger.c",
+        "firmware/utils/logger/logger.h"
+      ]
+    }
+  ],
+  "module_deps": [
+    {
+      "from": "app",
+      "to": "osal",
+      "via": "include",
+      "file": "firmware/app/app.c",
+      "line": 5,
+      "symbol": "osal.h"
+    },
+    {
+      "from": "app",
+      "to": "services",
+      "via": "include",
+      "file": "firmware/app/app.c",
+      "line": 6,
+      "symbol": "sensor_service.h"
+    },
+    {
+      "from": "app",
+      "to": "utils_logger",
+      "via": "include",
+      "file": "firmware/app/app.c",
+      "line": 4,
+      "symbol": "logger.h"
+    },
+    {
+      "from": "bsp",
+      "to": "configs",
+      "via": "include",
+      "file": "firmware/bsp/board.h",
+      "line": 20,
+      "symbol": "app_config.h"
+    },
+    {
+      "from": "main",
+      "to": "app",
+      "via": "include",
+      "file": "main/entry.c",
+      "line": 2,
+      "symbol": "app.h"
+    },
+    {
+      "from": "platforms_esp32",
+      "to": "configs",
+      "via": "include",
+      "file": "firmware/platforms/esp32/sensor_platform.c",
+      "line": 4,
+      "symbol": "app_config.h"
+    },
+    {
+      "from": "platforms_esp32",
+      "to": "interfaces",
+      "via": "include",
+      "file": "firmware/platforms/esp32/sensor_platform.c",
+      "line": 2,
+      "symbol": "sensor_if.h"
+    },
+    {
+      "from": "platforms_esp32",
+      "to": "osal",
+      "via": "include",
+      "file": "firmware/platforms/esp32/osal_freertos.c",
+      "line": 2,
+      "symbol": "osal.h"
+    },
+    {
+      "from": "platforms_esp32",
+      "to": "utils_logger",
+      "via": "include",
+      "file": "firmware/platforms/esp32/sensor_platform.c",
+      "line": 5,
+      "symbol": "logger.h"
+    },
+    {
+      "from": "services",
+      "to": "configs",
+      "via": "include",
+      "file": "firmware/services/sensor_service.c",
+      "line": 4,
+      "symbol": "app_config.h"
+    },
+    {
+      "from": "services",
+      "to": "interfaces",
+      "via": "include",
+      "file": "firmware/services/sensor_service.c",
+      "line": 7,
+      "symbol": "sensor_if.h"
+    },
+    {
+      "from": "services",
+      "to": "modules_orientation",
+      "via": "include",
+      "file": "firmware/services/sensor_service.c",
+      "line": 6,
+      "symbol": "orientation.h"
+    },
+    {
+      "from": "services",
+      "to": "osal",
+      "via": "include",
+      "file": "firmware/services/sensor_service.c",
+      "line": 5,
+      "symbol": "osal.h"
+    }
+  ],
+  "task_flows": [
+    {
+      "task_node_id": "sensor_service",
+      "task_label": "sensor_service",
+      "entry_fn": "sensor_service_task",
+      "nodes": [
+        {
+          "id": "f1",
+          "label": "Task sensor_service_task",
+          "kind": "entry",
+          "file": "firmware/services/sensor_service.c",
+          "line": 16
+        },
+        {
+          "id": "f2",
+          "label": "osal_uptime_ms()",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 19
+        },
+        {
+          "id": "f3",
+          "label": "sensor_if_mpu6050_init()",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 23
+        },
+        {
+          "id": "f4",
+          "label": "sensor_if_dht22_init()",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 24
+        },
+        {
+          "id": "f5",
+          "label": "orientation_init(&orientation)",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 25
+        },
+        {
+          "id": "f6",
+          "label": "Loop forever",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 30
+        },
+        {
+          "id": "f7",
+          "label": "osal_uptime_ms()",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 32
+        },
+        {
+          "id": "f8",
+          "label": "(!is_mpu_ready)",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 34
+        },
+        {
+          "id": "f9",
+          "label": "sensor_if_mpu6050_init()",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 36
+        },
+        {
+          "id": "f10",
+          "label": "(!is_dht_ready)",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 39
+        },
+        {
+          "id": "f11",
+          "label": "sensor_if_dht22_init()",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 41
+        },
+        {
+          "id": "f12",
+          "label": "(is_mpu_ready && ((int32_t)(now_ms - ne…",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 44
+        },
+        {
+          "id": "f13",
+          "label": "sensor_if_mpu6050_read(&current_sample)",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 51
+        },
+        {
+          "id": "f14",
+          "label": "(current_sample.is_valid)",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 53
+        },
+        {
+          "id": "f15",
+          "label": "(is_orientation_ready)",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 63
+        },
+        {
+          "id": "f16",
+          "label": "orientation_update(&orientation)",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 65
+        },
+        {
+          "id": "f17",
+          "label": "(is_dht_ready && ((int32_t)(now_ms - ne…",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 77
+        },
+        {
+          "id": "f18",
+          "label": "sensor_if_dht22_read(&temperature_c)",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 82
+        },
+        {
+          "id": "f19",
+          "label": "(is_dht_valid)",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 83
+        },
+        {
+          "id": "f20",
+          "label": "((int32_t)(now_ms - next_report_ms) >= …",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 91
+        },
+        {
+          "id": "f21",
+          "label": "sensor_if_report(&sample)",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 93
+        },
+        {
+          "id": "f22",
+          "label": "(!is_mpu_ready || !is_dht_ready)",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 101
+        },
+        {
+          "id": "f23",
+          "label": "osal_delay_ms(SENSOR_SERVICE_INITIAL_RETRY_MS)",
+          "kind": "timer",
+          "file": "firmware/services/sensor_service.c",
+          "line": 103
+        },
+        {
+          "id": "f24",
+          "label": "osal_delay_ms(1U)",
+          "kind": "timer",
+          "file": "firmware/services/sensor_service.c",
+          "line": 107
+        }
+      ],
+      "edges": [
+        {
+          "from": "f1",
+          "to": "f2",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f2",
+          "to": "f3",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f3",
+          "to": "f4",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f4",
+          "to": "f5",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f5",
+          "to": "f6",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f6",
+          "to": "f7",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f7",
+          "to": "f8",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f8",
+          "to": "f9",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f9",
+          "to": "f10",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f8",
+          "to": "f10",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f10",
+          "to": "f11",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f11",
+          "to": "f12",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f10",
+          "to": "f12",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f12",
+          "to": "f13",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f13",
+          "to": "f14",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f14",
+          "to": "f15",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f15",
+          "to": "f16",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f16",
+          "to": "f17",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f15",
+          "to": "f17",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f14",
+          "to": "f17",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f12",
+          "to": "f17",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f17",
+          "to": "f18",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f18",
+          "to": "f19",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f19",
+          "to": "f20",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f19",
+          "to": "f20",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f17",
+          "to": "f20",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f20",
+          "to": "f21",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f21",
+          "to": "f22",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f20",
+          "to": "f22",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f22",
+          "to": "f23",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f22",
+          "to": "f24",
+          "label": "no",
+          "loop_back": false
+        },
+        {
+          "from": "f23",
+          "to": "f6",
+          "label": "next cycle",
+          "loop_back": true
+        },
+        {
+          "from": "f24",
+          "to": "f6",
+          "label": "next cycle",
+          "loop_back": true
+        }
+      ]
+    },
+    {
+      "task_node_id": "osal_task_entry",
+      "task_label": "osal_task_entry",
+      "entry_fn": "osal_task_entry",
+      "nodes": [
+        {
+          "id": "f1",
+          "label": "Task osal_task_entry",
+          "kind": "entry",
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 21
+        },
+        {
+          "id": "f2",
+          "label": "vPortFree(argument)",
+          "kind": "step",
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 23
+        },
+        {
+          "id": "f3",
+          "label": "task_function(task_context.argument)",
+          "kind": "step",
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 24
+        },
+        {
+          "id": "f4",
+          "label": "vTaskDelete(NULL)",
+          "kind": "step",
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 25
+        }
+      ],
+      "edges": [
+        {
+          "from": "f1",
+          "to": "f2",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f2",
+          "to": "f3",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f3",
+          "to": "f4",
+          "label": "",
+          "loop_back": false
+        }
+      ]
+    },
+    {
+      "task_node_id": "task",
+      "task_label": "task",
+      "entry_fn": "osal_task_entry",
+      "nodes": [
+        {
+          "id": "f1",
+          "label": "Task osal_task_entry",
+          "kind": "entry",
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 21
+        },
+        {
+          "id": "f2",
+          "label": "vPortFree(argument)",
+          "kind": "step",
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 23
+        },
+        {
+          "id": "f3",
+          "label": "task_function(task_context.argument)",
+          "kind": "step",
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 24
+        },
+        {
+          "id": "f4",
+          "label": "vTaskDelete(NULL)",
+          "kind": "step",
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 25
+        }
+      ],
+      "edges": [
+        {
+          "from": "f1",
+          "to": "f2",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f2",
+          "to": "f3",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f3",
+          "to": "f4",
+          "label": "",
+          "loop_back": false
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "headline": "The DHT22 GPIO configuration is identified, but its pin number cannot be resolved from the supplied evidence.",
+    "node_count": 0,
+    "edge_count": 0,
+    "warnings": []
+  },
+  "diagrams": {
+    "hld": {
+      "title": "High-Level Design",
+      "mermaid": "flowchart TD\n    subgraph hld_lane_utility[\"Utilities\"]\n        utils_helpers[\"utils/helpers<br/>utility · 2 files\"]\n        utils_logger[\"utils/logger<br/>utility · 2 files\"]\n    end\n    subgraph hld_lane_hardware[\"Hardware\"]\n        hw_mpu6050_i2c[\"MPU6050 I2C Device<br/>i2c_device\"]\n    end\n    main([\"main<br/>entrypoint · 1 file\"])\n    app[\"app<br/>application · 2 files\"]\n    platforms_esp32[[\"platforms/esp32<br/>platform · 2 files\"]]\n    bsp[\"bsp<br/>board · 2 files\"]\n    osal[\"osal<br/>abstraction · 1 file\"]\n    configs[(\"configs<br/>configuration · 4 files\")]\n    interfaces[\"interfaces<br/>module · 1 file\"]\n    modules_orientation[\"modules/orientation<br/>module · 2 files\"]\n    services[\"services<br/>module · 2 files\"]\n    app -->|osal.h| osal\n    app -->|sensor_service.h| services\n    app -->|logger.h| utils_logger\n    bsp -->|app_config.h| configs\n    main -->|app.h| app\n    platforms_esp32 -->|app_config.h| configs\n    platforms_esp32 -->|sensor_if.h| interfaces\n    platforms_esp32 -->|osal.h| osal\n    platforms_esp32 -->|logger.h| utils_logger\n    services -->|app_config.h| configs\n    services -->|sensor_if.h| interfaces\n    services -->|orientation.h| modules_orientation\n    services -->|osal.h| osal\n    app -->|drives| hw_mpu6050_i2c\n    classDef hldEntrypoint fill:#1f6feb,stroke:#4c8dff,color:#ffffff,stroke-width:2px\n    classDef hldApplication fill:#123324,stroke:#2ecf82,color:#c9f5e0,stroke-width:2px\n    classDef hldDriver fill:#12283a,stroke:#4aa3df,color:#cfe8f7,stroke-width:2px\n    classDef hldPlatform fill:#2b1f3a,stroke:#a97fe0,color:#e3d5f7,stroke-width:2px\n    classDef hldBoard fill:#3a1e12,stroke:#e2703a,color:#ffd9c7,stroke-width:2px\n    classDef hldUtility fill:#22262b,stroke:#8b949e,color:#d6dde5,stroke-width:2px\n    classDef hldConfiguration fill:#3a2f12,stroke:#d9a441,color:#f2e3c0,stroke-width:2px\n    classDef hldHardware fill:#3a1e12,stroke:#e2703a,color:#ffd9c7,stroke-width:2px\n    classDef hldNetwork fill:#12283a,stroke:#4aa3df,color:#cfe8f7,stroke-width:2px\n    classDef hldSink fill:#123324,stroke:#2ecf82,color:#c9f5e0,stroke-width:2px\n    class main hldEntrypoint\n    class app hldApplication\n    class platforms_esp32 hldPlatform\n    class bsp hldBoard\n    class osal hldPlatform\n    class utils_helpers hldUtility\n    class utils_logger hldUtility\n    class configs hldConfiguration\n    class hw_mpu6050_i2c hldHardware",
+      "generation_error": "Model diagram rejected: flowchart declares no edges",
+      "authored_by_model": false,
+      "node_notes": {
+        "app": "app is a application module at app. It owns 2 source files this architecture is built from.",
+        "platforms_esp32": "platforms/esp32 is a platform module at platforms/esp32. It owns 2 source files this architecture is built from.",
+        "interfaces": "interfaces is a module module at interfaces. It owns 1 source file this architecture is built from.",
+        "osal": "osal is a abstraction module at osal. It owns 1 source file this architecture is built from.",
+        "utils_helpers": "utils/helpers is a utility module at utils/helpers. It owns 2 source files this architecture is built from.",
+        "utils_logger": "utils/logger is a utility module at utils/logger. It owns 2 source files this architecture is built from.",
+        "modules_orientation": "modules/orientation is a module module at modules/orientation. It owns 2 source files this architecture is built from.",
+        "main": "main is a entrypoint module at main. It owns 1 source file this architecture is built from.",
+        "bsp": "bsp is a board module at bsp. It owns 2 source files this architecture is built from.",
+        "hw_mpu6050_i2c": "MPU6050 I2C Device is a step in this firmware's runtime flow. The cite i2c_device is the source evidence for it.",
+        "configs": "configs is a configuration module at configs. It owns 4 source files this architecture is built from.",
+        "services": "services is a module module at services. It owns 2 source files this architecture is built from."
+      }
+    },
+    "lld": {
+      "title": "Low-Level Design (Firmware Workflow)",
+      "mermaid": "flowchart TD\n    subgraph lld_lane_0[\"sensor_service · sensor_service_task\"]\n        lld_t0_f1([\"Task sensor_service_task<br/>sensor_service.c:16\"])\n        lld_t0_f2[\"osal_uptime_ms#40;#41;<br/>sensor_service.c:19\"]\n        lld_t0_f3[\"sensor_if_mpu6050_init#40;#41;<br/>sensor_service.c:23\"]\n        lld_t0_f4[\"sensor_if_dht22_init#40;#41;<br/>sensor_service.c:24\"]\n        lld_t0_f5[\"orientation_init#40;&orientation#41;<br/>sensor_service.c:25\"]\n        lld_t0_f6[\"Loop forever<br/>sensor_service.c:30\"]\n        lld_t0_f7[\"osal_uptime_ms#40;#41;<br/>sensor_service.c:32\"]\n        lld_t0_f8{\"#40;!is_mpu_ready#41; — sensor_service.c:34\"}\n        lld_t0_f9[\"sensor_if_mpu6050_init#40;#41;<br/>sensor_service.c:36\"]\n        lld_t0_f10{\"#40;!is_dht_ready#41; — sensor_service.c:39\"}\n        lld_t0_f11[\"sensor_if_dht22_init#40;#41;<br/>sensor_service.c:41\"]\n        lld_t0_f12{\"#40;is_mpu_ready && #40;#40;int32_t#41;#40;now_ms - ne… — sensor_service.c:44\"}\n        lld_t0_f13[\"sensor_if_mpu6050_read#40;&current_sample#41;<br/>sensor_service.c:51\"]\n        lld_t0_f14{\"#40;current_sample.is_valid#41; — sensor_service.c:53\"}\n        lld_t0_f15{\"#40;is_orientation_ready#41; — sensor_service.c:63\"}\n        lld_t0_f16[\"orientation_update#40;&orientation#41;<br/>sensor_service.c:65\"]\n        lld_t0_f17{\"#40;is_dht_ready && #40;#40;int32_t#41;#40;now_ms - ne… — sensor_service.c:77\"}\n        lld_t0_f18[\"sensor_if_dht22_read#40;&temperature_c#41;<br/>sensor_service.c:82\"]\n        lld_t0_f19{\"#40;is_dht_valid#41; — sensor_service.c:83\"}\n        lld_t0_f20{\"#40;#40;int32_t#41;#40;now_ms - next_report_ms#41; #gt;= … — sensor_service.c:91\"}\n        lld_t0_f21[\"sensor_if_report#40;&sample#41;<br/>sensor_service.c:93\"]\n        lld_t0_f22{\"#40;!is_mpu_ready #124;#124; !is_dht_ready#41; — sensor_service.c:101\"}\n        lld_t0_f23(\"osal_delay_ms#40;SENSOR_SERVICE_INITIAL_RETRY_MS#41;<br/>sensor_service.c:103\")\n        lld_t0_f24(\"osal_delay_ms#40;1U#41;<br/>sensor_service.c:107\")\n    end\n    subgraph lld_lane_1[\"osal_task_entry · osal_task_entry\"]\n        lld_t1_f1([\"Task osal_task_entry<br/>osal_freertos.c:21\"])\n        lld_t1_f2[\"vPortFree#40;argument#41;<br/>osal_freertos.c:23\"]\n        lld_t1_f3[\"task_function#40;task_context.argument#41;<br/>osal_freertos.c:24\"]\n        lld_t1_f4[\"vTaskDelete#40;NULL#41;<br/>osal_freertos.c:25\"]\n    end\n    subgraph lld_lane_2[\"task · osal_task_entry\"]\n        lld_t2_f1([\"Task osal_task_entry<br/>osal_freertos.c:21\"])\n        lld_t2_f2[\"vPortFree#40;argument#41;<br/>osal_freertos.c:23\"]\n        lld_t2_f3[\"task_function#40;task_context.argument#41;<br/>osal_freertos.c:24\"]\n        lld_t2_f4[\"vTaskDelete#40;NULL#41;<br/>osal_freertos.c:25\"]\n    end\n    lld_t0_f1 --> lld_t0_f2\n    lld_t0_f2 --> lld_t0_f3\n    lld_t0_f3 --> lld_t0_f4\n    lld_t0_f4 --> lld_t0_f5\n    lld_t0_f5 --> lld_t0_f6\n    lld_t0_f6 --> lld_t0_f7\n    lld_t0_f7 --> lld_t0_f8\n    lld_t0_f8 ==>|yes| lld_t0_f9\n    lld_t0_f9 --> lld_t0_f10\n    lld_t0_f8 --> lld_t0_f10\n    lld_t0_f10 ==>|yes| lld_t0_f11\n    lld_t0_f11 --> lld_t0_f12\n    lld_t0_f10 --> lld_t0_f12\n    lld_t0_f12 ==>|yes| lld_t0_f13\n    lld_t0_f13 --> lld_t0_f14\n    lld_t0_f14 ==>|yes| lld_t0_f15\n    lld_t0_f15 ==>|yes| lld_t0_f16\n    lld_t0_f16 --> lld_t0_f17\n    lld_t0_f15 --> lld_t0_f17\n    lld_t0_f14 --> lld_t0_f17\n    lld_t0_f12 --> lld_t0_f17\n    lld_t0_f17 ==>|yes| lld_t0_f18\n    lld_t0_f18 --> lld_t0_f19\n    lld_t0_f19 --> lld_t0_f20\n    lld_t0_f19 --> lld_t0_f20\n    lld_t0_f17 --> lld_t0_f20\n    lld_t0_f20 ==>|yes| lld_t0_f21\n    lld_t0_f21 --> lld_t0_f22\n    lld_t0_f20 --> lld_t0_f22\n    lld_t0_f22 ==>|yes| lld_t0_f23\n    lld_t0_f22 ==>|no| lld_t0_f24\n    lld_t0_f23 -.->|next cycle| lld_t0_f6\n    lld_t0_f24 -.->|next cycle| lld_t0_f6\n    lld_t1_f1 --> lld_t1_f2\n    lld_t1_f2 --> lld_t1_f3\n    lld_t1_f3 --> lld_t1_f4\n    lld_t2_f1 --> lld_t2_f2\n    lld_t2_f2 --> lld_t2_f3\n    lld_t2_f3 --> lld_t2_f4\n    linkStyle 0 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 1 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 2 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 3 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 4 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 5 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 6 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 7 stroke:#2ecf82,stroke-width:2.5px\n    linkStyle 8 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 9 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 10 stroke:#2ecf82,stroke-width:2.5px\n    linkStyle 11 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 12 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 13 stroke:#2ecf82,stroke-width:2.5px\n    linkStyle 14 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 15 stroke:#2ecf82,stroke-width:2.5px\n    linkStyle 16 stroke:#2ecf82,stroke-width:2.5px\n    linkStyle 17 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 18 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 19 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 20 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 21 stroke:#2ecf82,stroke-width:2.5px\n    linkStyle 22 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 23 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 24 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 25 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 26 stroke:#2ecf82,stroke-width:2.5px\n    linkStyle 27 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 28 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 29 stroke:#2ecf82,stroke-width:2.5px\n    linkStyle 30 stroke:#e2703a,stroke-width:2.5px\n    linkStyle 31 stroke:#a97fe0,stroke-width:2px\n    linkStyle 32 stroke:#a97fe0,stroke-width:2px\n    linkStyle 33 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 34 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 35 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 36 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 37 stroke:#8b949e,stroke-width:1.5px\n    linkStyle 38 stroke:#8b949e,stroke-width:1.5px\n    classDef lldEntry fill:#1f6feb,stroke:#4c8dff,color:#ffffff,stroke-width:2px\n    classDef lldDecision fill:#3a2f12,stroke:#d9a441,color:#f2e3c0,stroke-width:2px\n    classDef lldError fill:#3a1e12,stroke:#e2703a,color:#ffd9c7,stroke-width:2px\n    classDef lldOutput fill:#123324,stroke:#2ecf82,color:#c9f5e0,stroke-width:2px\n    classDef lldTx fill:#12283a,stroke:#4aa3df,color:#cfe8f7,stroke-width:2px\n    classDef lldTimer fill:#2b1f3a,stroke:#a97fe0,color:#e3d5f7,stroke-width:2px\n    class lld_t0_f1 lldEntry\n    class lld_t0_f8 lldDecision\n    class lld_t0_f10 lldDecision\n    class lld_t0_f12 lldDecision\n    class lld_t0_f14 lldDecision\n    class lld_t0_f15 lldDecision\n    class lld_t0_f17 lldDecision\n    class lld_t0_f19 lldDecision\n    class lld_t0_f20 lldDecision\n    class lld_t0_f22 lldDecision\n    class lld_t0_f23 lldTimer\n    class lld_t0_f24 lldTimer\n    class lld_t1_f1 lldEntry\n    class lld_t2_f1 lldEntry",
+      "authored_by_model": false,
+      "node_notes": {
+        "lld_t0_f5": "orientation_init(&orientation) is a step in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:25",
+        "lld_t1_f1": "Task osal_task_entry is the entry of the osal_task_entry task (osal_task_entry). Evidence: osal_freertos.c:21",
+        "lld_t0_f23": "osal_delay_ms(SENSOR_SERVICE_INITIAL_RETRY_MS) is a wait/timer in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:103",
+        "lld_t2_f2": "vPortFree(argument) is a step in the task task (osal_task_entry). Evidence: osal_freertos.c:23",
+        "lld_t0_f1": "Task sensor_service_task is the entry of the sensor_service task (sensor_service_task). Evidence: sensor_service.c:16",
+        "lld_t1_f4": "vTaskDelete(NULL) is a step in the osal_task_entry task (osal_task_entry). Evidence: osal_freertos.c:25",
+        "lld_t2_f3": "task_function(task_context.argument) is a step in the task task (osal_task_entry). Evidence: osal_freertos.c:24",
+        "lld_t0_f6": "Loop forever is a step in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:30",
+        "lld_t1_f2": "vPortFree(argument) is a step in the osal_task_entry task (osal_task_entry). Evidence: osal_freertos.c:23",
+        "lld_t0_f4": "sensor_if_dht22_init() is a step in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:24",
+        "lld_t0_f3": "sensor_if_mpu6050_init() is a step in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:23",
+        "lld_t2_f4": "vTaskDelete(NULL) is a step in the task task (osal_task_entry). Evidence: osal_freertos.c:25",
+        "lld_t0_f22": "(!is_mpu_ready || !is_dht_ready) is a branch in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:101",
+        "lld_t0_f16": "orientation_update(&orientation) is a step in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:65",
+        "lld_t0_f12": "(is_mpu_ready && ((int32_t)(now_ms - ne… is a branch in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:44",
+        "lld_t0_f11": "sensor_if_dht22_init() is a step in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:41",
+        "lld_t0_f14": "(current_sample.is_valid) is a branch in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:53",
+        "lld_t0_f13": "sensor_if_mpu6050_read(&current_sample) is a step in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:51",
+        "lld_t0_f9": "sensor_if_mpu6050_init() is a step in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:36",
+        "lld_t0_f24": "osal_delay_ms(1U) is a wait/timer in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:107",
+        "lld_t0_f7": "osal_uptime_ms() is a step in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:32",
+        "lld_t0_f10": "(!is_dht_ready) is a branch in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:39",
+        "lld_t0_f19": "(is_dht_valid) is a branch in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:83",
+        "lld_t0_f17": "(is_dht_ready && ((int32_t)(now_ms - ne… is a branch in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:77",
+        "lld_t2_f1": "Task osal_task_entry is the entry of the task task (osal_task_entry). Evidence: osal_freertos.c:21",
+        "lld_t0_f2": "osal_uptime_ms() is a step in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:19",
+        "lld_t0_f20": "((int32_t)(now_ms - next_report_ms) >= … is a branch in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:91",
+        "lld_t0_f21": "sensor_if_report(&sample) is a step in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:93",
+        "lld_t1_f3": "task_function(task_context.argument) is a step in the osal_task_entry task (osal_task_entry). Evidence: osal_freertos.c:24",
+        "lld_t0_f15": "(is_orientation_ready) is a branch in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:63",
+        "lld_t0_f8": "(!is_mpu_ready) is a branch in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:34",
+        "lld_t0_f18": "sensor_if_dht22_read(&temperature_c) is a step in the sensor_service task (sensor_service_task). Evidence: sensor_service.c:82"
+      }
+    },
+    "sequence": {
+      "title": "Sequence Diagram",
+      "mermaid": "sequenceDiagram\n    autonumber\n    participant sensor_service as Task sensor_service\n    participant osal_task_entry as Task osal_task_entry\n    participant task as Task task\n    participant boot as Boot / app_main\n    boot->>sensor_service: creates\n    boot->>osal_task_entry: creates\n    boot->>task: creates\n    loop task cycle\n        sensor_service->>boot: osal_uptime_ms()\n        sensor_service->>boot: sensor_if_mpu6050_init()\n        sensor_service->>boot: sensor_if_dht22_init()\n        sensor_service->>boot: orientation_init(&orientation)\n        sensor_service->>boot: Loop forever\n        sensor_service->>boot: osal_uptime_ms()\n        sensor_service->>boot: (!is_mpu_ready)\n        alt (!is_mpu_ready)\n            sensor_service->>boot: sensor_if_mpu6050_init()\n        else no\n            sensor_service-->>sensor_service: (!is_dht_ready)\n        end\n        sensor_service->>boot: (!is_dht_ready)\n        alt (!is_dht_ready)\n            sensor_service->>boot: sensor_if_dht22_init()\n        else no\n            sensor_service-->>sensor_service: (is_mpu_ready && ((int32_t)(now_ms - ne…\n        end\n        sensor_service->>boot: (is_mpu_ready && ((int32_t)(now_ms - ne…\n        alt (is_mpu_ready && ((int32_t)(now_ms - ne…\n            sensor_service->>boot: sensor_if_mpu6050_read(&current_sample)\n        else no\n            sensor_service-->>sensor_service: (is_dht_ready && ((int32_t)(now_ms - ne…\n        end\n        sensor_service->>boot: (current_sample.is_valid)\n        alt (current_sample.is_valid)\n            sensor_service->>boot: (is_orientation_ready)\n        else no\n            sensor_service-->>sensor_service: (is_dht_ready && ((int32_t)(now_ms - ne…\n        end\n        alt (is_orientation_ready)\n            sensor_service->>boot: orientation_update(&orientation)\n        else no\n            sensor_service-->>sensor_service: (is_dht_ready && ((int32_t)(now_ms - ne…\n        end\n        sensor_service->>boot: (is_dht_ready && ((int32_t)(now_ms - ne…\n        alt (is_dht_ready && ((int32_t)(now_ms - ne…\n            sensor_service->>boot: sensor_if_dht22_read(&temperature_c)\n        else no\n            sensor_service-->>sensor_service: ((int32_t)(now_ms - next_report_ms) #gt;= …\n        end\n        sensor_service->>boot: (is_dht_valid)\n        alt (is_dht_valid)\n            sensor_service->>boot: ((int32_t)(now_ms - next_report_ms) #gt;= …\n        else no\n            sensor_service-->>sensor_service: ((int32_t)(now_ms - next_report_ms) #gt;= …\n        end\n        alt ((int32_t)(now_ms - next_report_ms) #gt;= …\n            sensor_service->>boot: sensor_if_report(&sample)\n        else no\n            sensor_service-->>sensor_service: (!is_mpu_ready || !is_dht_ready)\n        end\n        sensor_service->>boot: (!is_mpu_ready || !is_dht_ready)\n        alt (!is_mpu_ready || !is_dht_ready)\n            sensor_service->>boot: osal_delay_ms(SENSOR_SERVICE_INITIAL_RETRY_MS)\n        else no\n            sensor_service-->>sensor_service: osal_delay_ms(1U)\n        end\n    end\n    osal_task_entry->>boot: vPortFree(argument)\n    osal_task_entry->>boot: task_function(task_context.argument)\n    osal_task_entry->>boot: vTaskDelete(NULL)\n    task->>boot: vPortFree(argument)\n    task->>boot: task_function(task_context.argument)\n    task->>boot: vTaskDelete(NULL)",
+      "participants": [
+        "sensor_service",
+        "osal_task_entry",
+        "task",
+        "boot"
+      ],
+      "generated_from": [
+        "main/entry.c",
+        "firmware/app/app.c",
+        "firmware/platforms/esp32/osal_freertos.c",
+        "firmware/configs/app_config.h"
+      ],
+      "grounding": 1.0,
+      "authored_by_model": false
+    },
+    "model_pass_expected": true
+  },
+  "change_log": [],
+  "unresolved": [
+    {
+      "kind": "gpio_indirect",
+      "file": "firmware/platforms/esp32/sensor_platform.c",
+      "line": 251,
+      "symbol": "APP_DHT22_DATA_GPIO",
+      "hint": "DHT22 uses this GPIO in gpio_config, but the macro's numeric value is not present in the supplied snippets; cannot safely add a pin-bound sensor node."
+    }
+  ],
+  "read_only": false,
+  "graph_version": 6,
+  "generation": {
+    "mode": "hybrid_refine",
+    "model": "local_openai_proxy/gpt-6-luna",
+    "triggered_by": "mount",
+    "analyzed_at_ms": 1792043062096,
+    "input_files": [
+      "CMakeLists.txt",
+      "firmware/app/app.c",
+      "firmware/app/app.h",
+      "firmware/bsp/board.c",
+      "firmware/bsp/board.h",
+      "firmware/configs/app_config.h",
+      "firmware/configs/build_config.h",
+      "firmware/configs/feature_config.h",
+      "firmware/configs/platform_config.h",
+      "firmware/interfaces/sensor_if.h",
+      "firmware/modules/orientation/orientation.c",
+      "firmware/modules/orientation/orientation.h",
+      "firmware/osal/osal.h",
+      "firmware/platforms/esp32/osal_freertos.c",
+      "firmware/platforms/esp32/sensor_platform.c",
+      "firmware/services/sensor_service.c",
+      "firmware/services/sensor_service.h",
+      "firmware/utils/helpers/helpers.c",
+      "firmware/utils/helpers/helpers.h",
+      "firmware/utils/logger/logger.c",
+      "firmware/utils/logger/logger.h",
+      "main/entry.c",
+      "sdkconfig",
+      "sdkconfig.defaults"
+    ],
+    "token_usage": {
+      "prompt_tokens": 8712,
+      "completion_tokens": 624
+    }
+  },
+  "sync_metadata": {
+    "project_file": "",
+    "content_hash": "",
+    "pending_patches": [],
+    "last_diff": {
+      "from_revision": "e597e3a2de394b08ca71de66346995e5",
+      "to_revision": "2c6b59072df987ea2bcb8a47293d4f2e",
+      "nodes_added": [
+        "osal_task_entry",
+        "mpu6050_i2c",
+        "task",
+        "sensor_service"
+      ],
+      "nodes_removed": [],
+      "nodes_changed": [],
+      "edges_added": [
+        "e_boot_mpu6050_i2c_initializes",
+        "e_boot_sensor_service_spawns",
+        "e_boot_osal_task_entry_spawns",
+        "e_boot_task_spawns"
+      ],
+      "edges_removed": []
+    }
+  },
+  "validation_state": {
+    "valid": true,
+    "error_count": 0,
+    "warning_count": 0,
+    "validated_at_ms": 1792043062097
+  }
+}

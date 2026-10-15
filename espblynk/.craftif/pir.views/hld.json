@@ -1,0 +1,29 @@
+{
+  "schema_version": "3.0.0",
+  "view": "hld",
+  "revision": "dd27c29280fdf19d7f01078072c75532",
+  "graph_version": 15,
+  "generated_at_ms": 1792056788124,
+  "mermaid": "flowchart TD\n    subgraph hld_lane_utility[\"Utilities\"]\n        utils_helpers[\"utils/helpers<br/>utility · 2 files\"]\n        utils_logger[\"utils/logger<br/>utility · 2 files\"]\n    end\n    subgraph hld_lane_hardware[\"Hardware\"]\n        hw_mpu6050_i2c[\"MPU6050 I2C Device<br/>i2c_device\"]\n    end\n    subgraph hld_lane_network[\"Network\"]\n        net_http_client(\"HTTP<br/>http\")\n        net_wifi(\"WiFi<br/>wifi\")\n    end\n    main([\"main<br/>entrypoint · 1 file\"])\n    app[\"app<br/>application · 2 files\"]\n    platforms_esp32[[\"platforms/esp32<br/>platform · 4 files\"]]\n    bsp[\"bsp<br/>board · 2 files\"]\n    osal[\"osal<br/>abstraction · 1 file\"]\n    configs[(\"configs<br/>configuration · 6 files\")]\n    interfaces[\"interfaces<br/>module · 3 files\"]\n    modules_orientation[\"modules/orientation<br/>module · 2 files\"]\n    modules_telemetry[\"modules/telemetry<br/>module · 2 files\"]\n    services[\"services<br/>module · 6 files\"]\n    sink_storage_manager[(\"Storage Manager<br/>nvs\")]\n    app -->|osal.h| osal\n    app -->|network_service.h| services\n    app -->|logger.h| utils_logger\n    bsp -->|app_config.h| configs\n    main -->|app.h| app\n    modules_telemetry -->|telemetry_if.h| interfaces\n    platforms_esp32 -->|app_config.h| configs\n    platforms_esp32 -->|network_if.h| interfaces\n    platforms_esp32 -->|telemetry_mapping.h| modules_telemetry\n    platforms_esp32 -->|osal.h| osal\n    platforms_esp32 -->|logger.h| utils_logger\n    services -->|app_config.h| configs\n    services -->|network_if.h| interfaces\n    services -->|orientation.h| modules_orientation\n    services -->|telemetry_mapping.h| modules_telemetry\n    services -->|osal.h| osal\n    main -->|writes| sink_storage_manager\n    app -->|drives| hw_mpu6050_i2c\n    app -->|publishes| net_http_client\n    app -->|publishes| net_wifi\n    classDef hldEntrypoint fill:#1f6feb,stroke:#4c8dff,color:#ffffff,stroke-width:2px\n    classDef hldApplication fill:#123324,stroke:#2ecf82,color:#c9f5e0,stroke-width:2px\n    classDef hldDriver fill:#12283a,stroke:#4aa3df,color:#cfe8f7,stroke-width:2px\n    classDef hldPlatform fill:#2b1f3a,stroke:#a97fe0,color:#e3d5f7,stroke-width:2px\n    classDef hldBoard fill:#3a1e12,stroke:#e2703a,color:#ffd9c7,stroke-width:2px\n    classDef hldUtility fill:#22262b,stroke:#8b949e,color:#d6dde5,stroke-width:2px\n    classDef hldConfiguration fill:#3a2f12,stroke:#d9a441,color:#f2e3c0,stroke-width:2px\n    classDef hldHardware fill:#3a1e12,stroke:#e2703a,color:#ffd9c7,stroke-width:2px\n    classDef hldNetwork fill:#12283a,stroke:#4aa3df,color:#cfe8f7,stroke-width:2px\n    classDef hldSink fill:#123324,stroke:#2ecf82,color:#c9f5e0,stroke-width:2px\n    class main hldEntrypoint\n    class app hldApplication\n    class platforms_esp32 hldPlatform\n    class bsp hldBoard\n    class osal hldPlatform\n    class utils_helpers hldUtility\n    class utils_logger hldUtility\n    class configs hldConfiguration\n    class hw_mpu6050_i2c hldHardware\n    class net_http_client hldNetwork\n    class net_wifi hldNetwork\n    class sink_storage_manager hldSink",
+  "title": "High-Level Design",
+  "generation_error": "Model diagram rejected: HLD ignores evidenced peripherals — include at least one peripheral name or pin",
+  "node_notes": {
+    "main": "main is a entrypoint module at main. It owns 1 source file this architecture is built from.",
+    "sink_storage_manager": "Storage Manager is a step in this firmware's runtime flow. The cite nvs is the source evidence for it.",
+    "app": "app is a application module at app. It owns 2 source files this architecture is built from.",
+    "platforms_esp32": "platforms/esp32 is a platform module at platforms/esp32. It owns 4 source files this architecture is built from.",
+    "interfaces": "interfaces is a module module at interfaces. It owns 3 source files this architecture is built from.",
+    "services": "services is a module module at services. It owns 6 source files this architecture is built from.",
+    "net_wifi": "WiFi is a step in this firmware's runtime flow. The cite wifi is the source evidence for it.",
+    "bsp": "bsp is a board module at bsp. It owns 2 source files this architecture is built from.",
+    "configs": "configs is a configuration module at configs. It owns 6 source files this architecture is built from.",
+    "utils_logger": "utils/logger is a utility module at utils/logger. It owns 2 source files this architecture is built from.",
+    "hw_mpu6050_i2c": "MPU6050 I2C Device is a step in this firmware's runtime flow. The cite i2c_device is the source evidence for it.",
+    "osal": "osal is a abstraction module at osal. It owns 1 source file this architecture is built from.",
+    "modules_telemetry": "modules/telemetry is a module module at modules/telemetry. It owns 2 source files this architecture is built from.",
+    "net_http_client": "HTTP is a step in this firmware's runtime flow. The cite http is the source evidence for it.",
+    "modules_orientation": "modules/orientation is a module module at modules/orientation. It owns 2 source files this architecture is built from.",
+    "utils_helpers": "utils/helpers is a utility module at utils/helpers. It owns 2 source files this architecture is built from."
+  },
+  "authored_by_model": false
+}

@@ -1,0 +1,109 @@
+{
+  "job_id": "0f0c8947-6cea-49c7-8f1b-121ac1509c73",
+  "document_id": "e78e63af-0742-420d-9cbb-b9c76367bc5d",
+  "frozen_at": "2026-10-15T05:11:25.837Z",
+  "requirement_count": 32,
+  "categories": [
+    {
+      "id": "cat-1",
+      "name": "ESP32-C3 Sensor Hardware & Processing",
+      "description": "Covers the target board, sensor pin assignments and initialization, DHT22 and MPU6050 measurements, orientation calculation, and sensor-related configuration limits.",
+      "requirements": [
+        "The firmware shall target the ESP32-C3-DevKitM-1 board.",
+        "The firmware shall use GPIO2 as the MPU6050 I²C SCL signal.",
+        "The firmware shall use GPIO3 as the MPU6050 I²C SDA signal.",
+        "The firmware shall use GPIO1 (board pin 10) as the DHT22 data signal.",
+        "The firmware shall read temperature from the DHT22.",
+        "The firmware shall read humidity from the DHT22.",
+        "The firmware shall read MPU6050 acceleration and report the acceleration for each axis in m/s².",
+        "The firmware shall calculate gyroscope-derived orientation angles in degrees.",
+        "The firmware shall use accelerometer-assisted correction to reduce drift in orientation, including tilt axes where applicable.",
+        "The firmware shall handle sensor read failures without terminating the measurement loop.",
+        "The firmware shall not use accelerometer correction as an absolute yaw reference, and shall allow the Z orientation to drift over time.",
+        "The firmware shall treat the MPU6050 I²C address, sensor calibration procedure, and orientation-filter parameters as unspecified by this PRD.",
+        "The firmware shall initialize the MPU6050 before acquiring its sensor data.",
+        "The firmware shall initialize the DHT22 before attempting to read its measurements."
+      ],
+      "requirement_ids": [
+        "HW-001",
+        "IF-001",
+        "IF-002",
+        "IF-003",
+        "FR-001",
+        "FR-002",
+        "FR-003",
+        "FR-004",
+        "FR-005",
+        "FR-007",
+        "FR-010",
+        "IF-015",
+        "FR-011",
+        "FR-012"
+      ],
+      "tasks": [],
+      "gate": "ask",
+      "criteria": []
+    },
+    {
+      "id": "cat-2",
+      "name": "Wi-Fi Connectivity & Credential Management",
+      "description": "Covers Wi-Fi and Blynk secret configuration, credential protection, and continued measurement and recovery behavior during network interruptions.",
+      "requirements": [
+        "The firmware shall receive Wi-Fi and Blynk credentials as configuration secrets.",
+        "Passwords and authentication tokens shall not be committed to a public source repository.",
+        "The firmware shall keep credentials out of source files intended for sharing or version control.",
+        "The firmware shall handle network disconnections without terminating the measurement loop.",
+        "The firmware shall reconnect to the network and resume publishing when possible after a connectivity interruption."
+      ],
+      "requirement_ids": [
+        "SEC-001",
+        "SEC-002",
+        "SEC-003",
+        "FR-008",
+        "FR-009"
+      ],
+      "tasks": [],
+      "gate": "ask",
+      "criteria": []
+    },
+    {
+      "id": "cat-3",
+      "name": "Blynk IoT Integration & Data Publishing",
+      "description": "Covers Blynk template configuration and Wi-Fi-based cloud connection, publishing cadence, virtual-pin mappings, and the boundary with the existing dashboard.",
+      "requirements": [
+        "The firmware shall use Blynk Template ID TMPL3VjCwAzY1 and template name ESPInterface.",
+        "The firmware shall connect to Blynk IoT over Wi-Fi using the supplied configuration.",
+        "The firmware shall publish all eight sensor values to their assigned Blynk datastreams every two seconds.",
+        "The firmware shall publish temperature to Blynk virtual pin V0.",
+        "The firmware shall publish humidity to Blynk virtual pin V1.",
+        "The firmware shall publish accelerometer X to Blynk virtual pin V2.",
+        "The firmware shall publish accelerometer Y to Blynk virtual pin V3.",
+        "The firmware shall publish accelerometer Z to Blynk virtual pin V4.",
+        "The firmware shall publish gyroscope orientation X to Blynk virtual pin V5.",
+        "The firmware shall publish gyroscope orientation Y to Blynk virtual pin V6.",
+        "The firmware shall publish gyroscope orientation Z to Blynk virtual pin V7.",
+        "The firmware shall maintain the two-second sampling and publishing cadence during normal operation.",
+        "The firmware shall send values to the existing dashboard and datastreams; it shall not create the dashboard."
+      ],
+      "requirement_ids": [
+        "IF-004",
+        "IF-013",
+        "FR-006",
+        "IF-005",
+        "IF-006",
+        "IF-007",
+        "IF-008",
+        "IF-009",
+        "IF-010",
+        "IF-011",
+        "IF-012",
+        "NFR-001",
+        "IF-014"
+      ],
+      "tasks": [],
+      "gate": "ask",
+      "criteria": []
+    }
+  ],
+  "file_checksum": "f345d7ab4966b1ad4a82ffb267dfecde5dc0c2607348bd9f722ff03878e300f4"
+}

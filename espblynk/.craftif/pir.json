@@ -1,0 +1,1992 @@
+{
+  "schema_version": "2.1.0",
+  "id": "pir_espblynk",
+  "revision": "dd27c29280fdf19d7f01078072c75532",
+  "provenance": {
+    "project_path": "C:\\Users\\Adith\\Downloads\\Firmgen projects\\Firmgen projects\\10-10-26\\espdev\\espblynk\\espblynk",
+    "chat_id": "9c114c52-e013-4db0-a607-5f4ab23d95e9",
+    "revision": "dd27c29280fdf19d7f01078072c75532",
+    "generated_at_ms": 1792056723443,
+    "analyzer_version": "pir_maker-static-0.13.0",
+    "analyzed_files": [
+      "CMakeLists.txt",
+      "firmware/app/app.c",
+      "firmware/app/app.h",
+      "firmware/bsp/board.c",
+      "firmware/bsp/board.h",
+      "firmware/configs/app_config.h",
+      "firmware/configs/app_secrets.example.h",
+      "firmware/configs/app_secrets.h",
+      "firmware/configs/build_config.h",
+      "firmware/configs/feature_config.h",
+      "firmware/configs/platform_config.h",
+      "firmware/interfaces/network_if.h",
+      "firmware/interfaces/sensor_if.h",
+      "firmware/interfaces/telemetry_if.h",
+      "firmware/modules/orientation/orientation.c",
+      "firmware/modules/orientation/orientation.h",
+      "firmware/modules/telemetry/telemetry_mapping.c",
+      "firmware/modules/telemetry/telemetry_mapping.h",
+      "firmware/osal/osal.h",
+      "firmware/platforms/esp32/network_platform.c",
+      "firmware/platforms/esp32/osal_freertos.c",
+      "firmware/platforms/esp32/sensor_platform.c",
+      "firmware/platforms/esp32/telemetry_platform.c",
+      "firmware/services/network_service.c",
+      "firmware/services/network_service.h",
+      "firmware/services/sensor_service.c",
+      "firmware/services/sensor_service.h",
+      "firmware/services/telemetry_service.c",
+      "firmware/services/telemetry_service.h",
+      "firmware/utils/helpers/helpers.c",
+      "firmware/utils/helpers/helpers.h",
+      "firmware/utils/logger/logger.c",
+      "firmware/utils/logger/logger.h",
+      "main/entry.c",
+      "sdkconfig",
+      "sdkconfig.defaults"
+    ],
+    "file_hashes": {
+      "firmware/app/app.h": "ebc6cfe87fb8e2ab299633dd7a067f3b",
+      "sdkconfig.defaults": "f5df1e9c9925a6e9867daf4751c6723c",
+      "firmware/platforms/esp32/osal_freertos.c": "d2293854defd35386e57d611d2ac10fc",
+      "firmware/services/telemetry_service.h": "633d43fe78a577cae35877a702a901c4",
+      "firmware/bsp/board.c": "80dbd67c63e90f650faf231b4e68116e",
+      "firmware/platforms/esp32/telemetry_platform.c": "29107ee6871aae065cea559d471b6ba7",
+      "firmware/services/network_service.c": "0baeb81c899cf990f25b6f63e5245d60",
+      "firmware/utils/helpers/helpers.h": "ec8b635b7e5b55f8aeb8f47c3ff34312",
+      "firmware/services/sensor_service.c": "3cf40dea28c4f7c98bf30a4576da44de",
+      "firmware/configs/app_secrets.example.h": "0cde97882437d12fe0edd8a98457ec0b",
+      "firmware/modules/telemetry/telemetry_mapping.h": "bc458cd4a394800ab9b21f0eb926f834",
+      "firmware/utils/logger/logger.c": "8e992fef35c9a4678ec38e60902d741d",
+      "firmware/services/network_service.h": "16ccb2e05a4169500e9394909a042ad5",
+      "firmware/interfaces/network_if.h": "71e1037de2b12eef159c3f844dcc4d58",
+      "CMakeLists.txt": "3d7870a5a593d463811fc4101cacb2f5",
+      "firmware/configs/app_config.h": "713f862fec44cada19304f8ff4c62129",
+      "firmware/interfaces/telemetry_if.h": "83a1aea012a84c9929ead90c5c668dfe",
+      "firmware/osal/osal.h": "9e93e5096d971aa31beb162503c0e4f3",
+      "firmware/services/telemetry_service.c": "abeab99858502dc4ac205541c78e6560",
+      "firmware/configs/feature_config.h": "08ef51c6dfb8aa157bd736ea8388e0ba",
+      "firmware/configs/app_secrets.h": "49893b7a8dd36ec8c3e53ed0b0e35590",
+      "firmware/interfaces/sensor_if.h": "706251c3d4a2f5e270baa5d22f5fc3ec",
+      "sdkconfig": "439a8fda56ccee72da1807fc243605d6",
+      "firmware/configs/platform_config.h": "010b01144dbd2d3fb63f3053b158ab7a",
+      "firmware/platforms/esp32/network_platform.c": "3e20cb852ec06859f09f92a5f4dba199",
+      "firmware/modules/orientation/orientation.c": "b487ba5488ab1f200ecf348b3fd27bb0",
+      "firmware/platforms/esp32/sensor_platform.c": "bc6ef061b99d9d2d97d1e15af97721cf",
+      "main/entry.c": "86aaa3bc61772628c601798f4d9dea56",
+      "firmware/bsp/board.h": "056a67182b2f5e284f28b942cbdfb5b0",
+      "firmware/app/app.c": "543957e47997d5a8c2ea4d86dde5188f",
+      "firmware/utils/helpers/helpers.c": "914568ab7415fec17e74f306cbb5ae09",
+      "firmware/configs/build_config.h": "dd997e9a0a461df28c370a61963fd7e5",
+      "firmware/utils/logger/logger.h": "2c284c641c88c6a4fff52db62e8d1ea5",
+      "firmware/modules/orientation/orientation.h": "7df58e748fe0051c98fffe648f698af6",
+      "firmware/modules/telemetry/telemetry_mapping.c": "4c606c84d26d2db4d94ff06701bfb8fa",
+      "firmware/services/sensor_service.h": "3d6c60b0ef16b328de0524bc56991258"
+    },
+    "board_id": "ESP32-C3-DevKitM-1",
+    "target_chip": "esp32c3",
+    "config_hash": "sdkconfig.defaults:f5df1e9c9925a6e9867daf4751c6723c|sdkconfig:439a8fda56ccee72da1807fc243605d6",
+    "feature_flags": "mode=hybrid;refine=true"
+  },
+  "approval": {
+    "status": "stale"
+  },
+  "nodes": [
+    {
+      "id": "boot",
+      "node_type": "system_init",
+      "label": "Boot / app_main",
+      "properties": {
+        "target": "esp32c3"
+      },
+      "source_refs": [
+        {
+          "file": "main/entry.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "dd27c29280fdf19d7f01078072c75532"
+      },
+      "ownership": {
+        "primary_files": [
+          "main/entry.c"
+        ]
+      },
+      "editable_fields": [
+        "log_level"
+      ],
+      "layer": "system",
+      "ai_summary": "Bootstraps firmware startup and initializes core subsystems.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "sensor_service",
+      "node_type": "rtos_task",
+      "label": "Task sensor_service",
+      "properties": {
+        "task_name": "sensor_service",
+        "priority": 5,
+        "stack_size": 4096,
+        "period_ms": 0.0
+      },
+      "source_refs": [
+        {
+          "file": "firmware/app/app.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "dd27c29280fdf19d7f01078072c75532"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/app/app.c"
+        ]
+      },
+      "editable_fields": [
+        "task_name",
+        "priority",
+        "stack_size",
+        "period_ms"
+      ],
+      "layer": "runtime",
+      "ai_summary": "Executes RTOS loop logic for sensor_service.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "osal_task_entry",
+      "node_type": "rtos_task",
+      "label": "Task osal_task_entry",
+      "properties": {
+        "task_name": "osal_task_entry",
+        "priority": 5,
+        "stack_size": 4096,
+        "period_ms": 0.0
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "dd27c29280fdf19d7f01078072c75532"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/esp32/osal_freertos.c"
+        ]
+      },
+      "editable_fields": [
+        "task_name",
+        "priority",
+        "stack_size",
+        "period_ms"
+      ],
+      "layer": "runtime",
+      "ai_summary": "Executes RTOS loop logic for osal_task_entry.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "task",
+      "node_type": "rtos_task",
+      "label": "Task task",
+      "properties": {
+        "task_name": "task",
+        "priority": 5,
+        "stack_size": 4096,
+        "period_ms": 0.0
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "dd27c29280fdf19d7f01078072c75532"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/esp32/osal_freertos.c"
+        ]
+      },
+      "editable_fields": [
+        "task_name",
+        "priority",
+        "stack_size",
+        "period_ms"
+      ],
+      "layer": "runtime",
+      "ai_summary": "Executes RTOS loop logic for task.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "blynk_publish",
+      "node_type": "rtos_task",
+      "label": "Task blynk_publish",
+      "properties": {
+        "task_name": "blynk_publish",
+        "priority": 5,
+        "stack_size": 4096,
+        "period_ms": 0.0
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/esp32/telemetry_platform.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "dd27c29280fdf19d7f01078072c75532"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/esp32/telemetry_platform.c"
+        ]
+      },
+      "editable_fields": [
+        "task_name",
+        "priority",
+        "stack_size",
+        "period_ms"
+      ],
+      "layer": "runtime",
+      "ai_summary": "Executes RTOS loop logic for blynk_publish.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "mpu6050_i2c",
+      "node_type": "i2c_device",
+      "label": "MPU6050 I2C Device",
+      "properties": {
+        "address": "(0x68U)",
+        "clock_hz": 100000
+      },
+      "source_refs": [
+        {
+          "file": "firmware/configs/app_config.h",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "dd27c29280fdf19d7f01078072c75532"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/configs/app_config.h"
+        ]
+      },
+      "editable_fields": [
+        "sda_pin",
+        "scl_pin",
+        "address",
+        "clock_hz"
+      ],
+      "layer": "physical",
+      "ai_summary": "Represents an I2C peripheral with mapped bus pins.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "wifi",
+      "node_type": "wifi_manager",
+      "label": "WiFi",
+      "properties": {
+        "mode": "station"
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/esp32/network_platform.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "dd27c29280fdf19d7f01078072c75532"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/esp32/network_platform.c"
+        ]
+      },
+      "editable_fields": [
+        "ssid",
+        "password",
+        "mode"
+      ],
+      "layer": "network",
+      "ai_summary": "Manages Wi-Fi connectivity and network state.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "storage_manager",
+      "node_type": "storage_manager",
+      "label": "Storage Manager",
+      "properties": {
+        "backend": "nvs",
+        "namespace": "app"
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/esp32/network_platform.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "dd27c29280fdf19d7f01078072c75532"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/esp32/network_platform.c"
+        ]
+      },
+      "editable_fields": [
+        "backend",
+        "namespace"
+      ],
+      "layer": "system",
+      "ai_summary": "Persists runtime state and configuration data.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "event_handler",
+      "node_type": "event_handler",
+      "label": "Event Handler",
+      "properties": {
+        "event_id": -1
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/esp32/network_platform.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "dd27c29280fdf19d7f01078072c75532"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/esp32/network_platform.c"
+        ]
+      },
+      "editable_fields": [
+        "event_base",
+        "event_id"
+      ],
+      "layer": "runtime",
+      "ai_summary": "Queues and dispatches asynchronous firmware events.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    },
+    {
+      "id": "http_client",
+      "node_type": "http_client",
+      "label": "HTTP",
+      "properties": {
+        "method": "GET",
+        "timeout_ms": 5000
+      },
+      "source_refs": [
+        {
+          "file": "firmware/platforms/esp32/telemetry_platform.c",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "sync": {
+        "state": "synced",
+        "last_synced_revision": "dd27c29280fdf19d7f01078072c75532"
+      },
+      "ownership": {
+        "primary_files": [
+          "firmware/platforms/esp32/telemetry_platform.c"
+        ]
+      },
+      "editable_fields": [
+        "url",
+        "method",
+        "timeout_ms"
+      ],
+      "layer": "network",
+      "ai_summary": "Performs outbound HTTP requests for remote services.",
+      "confidence": 1.0,
+      "authority": "agent",
+      "semantic_tags": [],
+      "dependencies": []
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_boot_sensor_service_spawns",
+      "source_node_id": "boot",
+      "target_node_id": "sensor_service",
+      "kind": "execution",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/app/app.c",
+          "line": 33,
+          "symbol": "sensor_service",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "spawns",
+      "validated": false
+    },
+    {
+      "id": "e_boot_osal_task_entry_spawns",
+      "source_node_id": "boot",
+      "target_node_id": "osal_task_entry",
+      "kind": "execution",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 74,
+          "symbol": "osal_task_entry",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "spawns",
+      "validated": false
+    },
+    {
+      "id": "e_boot_task_spawns",
+      "source_node_id": "boot",
+      "target_node_id": "task",
+      "kind": "execution",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 74,
+          "symbol": "task",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "spawns",
+      "validated": false
+    },
+    {
+      "id": "e_boot_blynk_publish_spawns",
+      "source_node_id": "boot",
+      "target_node_id": "blynk_publish",
+      "kind": "execution",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/platforms/esp32/telemetry_platform.c",
+          "line": 158,
+          "symbol": "blynk_publish",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "spawns",
+      "validated": false
+    },
+    {
+      "id": "e_boot_mpu6050_i2c_initializes",
+      "source_node_id": "boot",
+      "target_node_id": "mpu6050_i2c",
+      "kind": "hardware",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/configs/app_config.h",
+          "symbol": "MPU6050 I2C Device",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "initializes",
+      "validated": false
+    },
+    {
+      "id": "e_boot_wifi_starts",
+      "source_node_id": "boot",
+      "target_node_id": "wifi",
+      "kind": "network",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/platforms/esp32/network_platform.c",
+          "symbol": "WiFi",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "starts",
+      "validated": false
+    },
+    {
+      "id": "e_boot_storage_manager_initializes",
+      "source_node_id": "boot",
+      "target_node_id": "storage_manager",
+      "kind": "dependency",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/platforms/esp32/network_platform.c",
+          "symbol": "Storage Manager",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "initializes",
+      "validated": false
+    },
+    {
+      "id": "e_boot_event_handler_initializes",
+      "source_node_id": "boot",
+      "target_node_id": "event_handler",
+      "kind": "dependency",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/platforms/esp32/network_platform.c",
+          "symbol": "Event Handler",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "initializes",
+      "validated": false
+    },
+    {
+      "id": "e_boot_http_client_initializes",
+      "source_node_id": "boot",
+      "target_node_id": "http_client",
+      "kind": "dependency",
+      "confidence": 1.0,
+      "source_refs": [
+        {
+          "file": "firmware/platforms/esp32/telemetry_platform.c",
+          "symbol": "HTTP",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "initializes",
+      "validated": false
+    },
+    {
+      "id": "e_sensor_service_reads_mpu6050",
+      "source_node_id": "sensor_service",
+      "target_node_id": "mpu6050_i2c",
+      "kind": "hardware",
+      "confidence": 0.98,
+      "source_refs": [
+        {
+          "file": "firmware/services/sensor_service.c",
+          "line": 52,
+          "symbol": "sensor_service_task",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        },
+        {
+          "file": "firmware/platforms/esp32/sensor_platform.c",
+          "symbol": "sensor_if_mpu6050_read",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "reads",
+      "validated": false
+    },
+    {
+      "id": "e_sensor_service_checks_wifi",
+      "source_node_id": "sensor_service",
+      "target_node_id": "wifi",
+      "kind": "data",
+      "confidence": 0.95,
+      "source_refs": [
+        {
+          "file": "firmware/services/sensor_service.c",
+          "symbol": "sensor_service_task",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        },
+        {
+          "file": "firmware/services/network_service.c",
+          "symbol": "network_service_is_connected",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "reads",
+      "validated": false
+    },
+    {
+      "id": "e_sensor_service_publishes_to_blynk_worker",
+      "source_node_id": "sensor_service",
+      "target_node_id": "blynk_publish",
+      "kind": "event",
+      "confidence": 0.97,
+      "source_refs": [
+        {
+          "file": "firmware/services/sensor_service.c",
+          "symbol": "sensor_service_task",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        },
+        {
+          "file": "firmware/services/telemetry_service.c",
+          "symbol": "telemetry_service_publish",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        },
+        {
+          "file": "firmware/platforms/esp32/telemetry_platform.c",
+          "symbol": "telemetry_if_publish",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "publishes",
+      "validated": false
+    },
+    {
+      "id": "e_wifi_dependency_for_blynk_publishing",
+      "source_node_id": "wifi",
+      "target_node_id": "blynk_publish",
+      "kind": "dependency",
+      "confidence": 0.9,
+      "source_refs": [
+        {
+          "file": "firmware/services/telemetry_service.c",
+          "symbol": "telemetry_service_publish",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        },
+        {
+          "file": "firmware/platforms/esp32/telemetry_platform.c",
+          "symbol": "telemetry_worker_task",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "depends_on",
+      "validated": false
+    },
+    {
+      "id": "e_blynk_worker_drives_http",
+      "source_node_id": "blynk_publish",
+      "target_node_id": "http_client",
+      "kind": "network",
+      "confidence": 0.99,
+      "source_refs": [
+        {
+          "file": "firmware/platforms/esp32/telemetry_platform.c",
+          "symbol": "telemetry_worker_task",
+          "confidence": 1.0,
+          "inferred_by": "static"
+        }
+      ],
+      "semantic_label": "drives",
+      "validated": false
+    }
+  ],
+  "layers": {
+    "physical": [
+      "mpu6050_i2c"
+    ],
+    "runtime": [
+      "sensor_service",
+      "osal_task_entry",
+      "task",
+      "blynk_publish",
+      "event_handler"
+    ],
+    "network": [
+      "wifi",
+      "http_client"
+    ],
+    "system": [
+      "boot",
+      "storage_manager"
+    ]
+  },
+  "partitions": [],
+  "components": [
+    {
+      "id": "main",
+      "path": "main/CMakeLists.txt",
+      "requires": [
+        "esp_driver_gpio",
+        "esp_driver_i2c",
+        "esp_rom",
+        "esp_timer",
+        "esp_wifi",
+        "esp_event",
+        "esp_netif",
+        "nvs_flash",
+        "freertos",
+        "log",
+        "esp_http_client",
+        "mbedtls",
+        "esp-tls",
+        "mqtt"
+      ],
+      "source_files": []
+    }
+  ],
+  "modules": [
+    {
+      "id": "app",
+      "label": "app",
+      "path": "app",
+      "kind": "application",
+      "files": [
+        "firmware/app/app.c",
+        "firmware/app/app.h"
+      ]
+    },
+    {
+      "id": "bsp",
+      "label": "bsp",
+      "path": "bsp",
+      "kind": "board",
+      "files": [
+        "firmware/bsp/board.c",
+        "firmware/bsp/board.h"
+      ]
+    },
+    {
+      "id": "configs",
+      "label": "configs",
+      "path": "configs",
+      "kind": "configuration",
+      "files": [
+        "firmware/configs/app_config.h",
+        "firmware/configs/app_secrets.example.h",
+        "firmware/configs/app_secrets.h",
+        "firmware/configs/build_config.h",
+        "firmware/configs/feature_config.h",
+        "firmware/configs/platform_config.h"
+      ]
+    },
+    {
+      "id": "interfaces",
+      "label": "interfaces",
+      "path": "interfaces",
+      "kind": "module",
+      "files": [
+        "firmware/interfaces/network_if.h",
+        "firmware/interfaces/sensor_if.h",
+        "firmware/interfaces/telemetry_if.h"
+      ]
+    },
+    {
+      "id": "main",
+      "label": "main",
+      "path": "main",
+      "kind": "entrypoint",
+      "files": [
+        "main/entry.c"
+      ]
+    },
+    {
+      "id": "modules_orientation",
+      "label": "modules/orientation",
+      "path": "modules/orientation",
+      "kind": "module",
+      "files": [
+        "firmware/modules/orientation/orientation.c",
+        "firmware/modules/orientation/orientation.h"
+      ]
+    },
+    {
+      "id": "modules_telemetry",
+      "label": "modules/telemetry",
+      "path": "modules/telemetry",
+      "kind": "module",
+      "files": [
+        "firmware/modules/telemetry/telemetry_mapping.c",
+        "firmware/modules/telemetry/telemetry_mapping.h"
+      ]
+    },
+    {
+      "id": "osal",
+      "label": "osal",
+      "path": "osal",
+      "kind": "abstraction",
+      "files": [
+        "firmware/osal/osal.h"
+      ]
+    },
+    {
+      "id": "platforms_esp32",
+      "label": "platforms/esp32",
+      "path": "platforms/esp32",
+      "kind": "platform",
+      "files": [
+        "firmware/platforms/esp32/network_platform.c",
+        "firmware/platforms/esp32/osal_freertos.c",
+        "firmware/platforms/esp32/sensor_platform.c",
+        "firmware/platforms/esp32/telemetry_platform.c"
+      ]
+    },
+    {
+      "id": "services",
+      "label": "services",
+      "path": "services",
+      "kind": "module",
+      "files": [
+        "firmware/services/network_service.c",
+        "firmware/services/network_service.h",
+        "firmware/services/sensor_service.c",
+        "firmware/services/sensor_service.h",
+        "firmware/services/telemetry_service.c",
+        "firmware/services/telemetry_service.h"
+      ]
+    },
+    {
+      "id": "utils_helpers",
+      "label": "utils/helpers",
+      "path": "utils/helpers",
+      "kind": "utility",
+      "files": [
+        "firmware/utils/helpers/helpers.c",
+        "firmware/utils/helpers/helpers.h"
+      ]
+    },
+    {
+      "id": "utils_logger",
+      "label": "utils/logger",
+      "path": "utils/logger",
+      "kind": "utility",
+      "files": [
+        "firmware/utils/logger/logger.c",
+        "firmware/utils/logger/logger.h"
+      ]
+    }
+  ],
+  "module_deps": [
+    {
+      "from": "app",
+      "to": "osal",
+      "via": "include",
+      "file": "firmware/app/app.c",
+      "line": 6,
+      "symbol": "osal.h"
+    },
+    {
+      "from": "app",
+      "to": "services",
+      "via": "include",
+      "file": "firmware/app/app.c",
+      "line": 5,
+      "symbol": "network_service.h"
+    },
+    {
+      "from": "app",
+      "to": "utils_logger",
+      "via": "include",
+      "file": "firmware/app/app.c",
+      "line": 4,
+      "symbol": "logger.h"
+    },
+    {
+      "from": "bsp",
+      "to": "configs",
+      "via": "include",
+      "file": "firmware/bsp/board.h",
+      "line": 20,
+      "symbol": "app_config.h"
+    },
+    {
+      "from": "main",
+      "to": "app",
+      "via": "include",
+      "file": "main/entry.c",
+      "line": 2,
+      "symbol": "app.h"
+    },
+    {
+      "from": "modules_telemetry",
+      "to": "interfaces",
+      "via": "include",
+      "file": "firmware/modules/telemetry/telemetry_mapping.h",
+      "line": 5,
+      "symbol": "telemetry_if.h"
+    },
+    {
+      "from": "platforms_esp32",
+      "to": "configs",
+      "via": "include",
+      "file": "firmware/platforms/esp32/network_platform.c",
+      "line": 4,
+      "symbol": "app_config.h"
+    },
+    {
+      "from": "platforms_esp32",
+      "to": "interfaces",
+      "via": "include",
+      "file": "firmware/platforms/esp32/network_platform.c",
+      "line": 2,
+      "symbol": "network_if.h"
+    },
+    {
+      "from": "platforms_esp32",
+      "to": "modules_telemetry",
+      "via": "include",
+      "file": "firmware/platforms/esp32/telemetry_platform.c",
+      "line": 6,
+      "symbol": "telemetry_mapping.h"
+    },
+    {
+      "from": "platforms_esp32",
+      "to": "osal",
+      "via": "include",
+      "file": "firmware/platforms/esp32/osal_freertos.c",
+      "line": 2,
+      "symbol": "osal.h"
+    },
+    {
+      "from": "platforms_esp32",
+      "to": "utils_logger",
+      "via": "include",
+      "file": "firmware/platforms/esp32/network_platform.c",
+      "line": 5,
+      "symbol": "logger.h"
+    },
+    {
+      "from": "services",
+      "to": "configs",
+      "via": "include",
+      "file": "firmware/services/sensor_service.c",
+      "line": 4,
+      "symbol": "app_config.h"
+    },
+    {
+      "from": "services",
+      "to": "interfaces",
+      "via": "include",
+      "file": "firmware/services/network_service.c",
+      "line": 4,
+      "symbol": "network_if.h"
+    },
+    {
+      "from": "services",
+      "to": "modules_orientation",
+      "via": "include",
+      "file": "firmware/services/sensor_service.c",
+      "line": 7,
+      "symbol": "orientation.h"
+    },
+    {
+      "from": "services",
+      "to": "modules_telemetry",
+      "via": "include",
+      "file": "firmware/services/telemetry_service.c",
+      "line": 5,
+      "symbol": "telemetry_mapping.h"
+    },
+    {
+      "from": "services",
+      "to": "osal",
+      "via": "include",
+      "file": "firmware/services/sensor_service.c",
+      "line": 5,
+      "symbol": "osal.h"
+    }
+  ],
+  "task_flows": [
+    {
+      "task_node_id": "sensor_service",
+      "task_label": "sensor_service",
+      "entry_fn": "sensor_service_task",
+      "nodes": [
+        {
+          "id": "f1",
+          "label": "Task sensor_service_task",
+          "kind": "entry",
+          "file": "firmware/services/sensor_service.c",
+          "line": 18
+        },
+        {
+          "id": "f2",
+          "label": "osal_uptime_ms()",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 21
+        },
+        {
+          "id": "f3",
+          "label": "sensor_if_mpu6050_init()",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 25
+        },
+        {
+          "id": "f4",
+          "label": "sensor_if_dht22_init()",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 26
+        },
+        {
+          "id": "f5",
+          "label": "orientation_init(&orientation)",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 27
+        },
+        {
+          "id": "f6",
+          "label": "telemetry_service_init()",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 29
+        },
+        {
+          "id": "f7",
+          "label": "Loop forever",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 34
+        },
+        {
+          "id": "f8",
+          "label": "osal_uptime_ms()",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 36
+        },
+        {
+          "id": "f9",
+          "label": "(!is_mpu_ready)",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 38
+        },
+        {
+          "id": "f10",
+          "label": "sensor_if_mpu6050_init()",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 40
+        },
+        {
+          "id": "f11",
+          "label": "(!is_dht_ready)",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 43
+        },
+        {
+          "id": "f12",
+          "label": "sensor_if_dht22_init()",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 45
+        },
+        {
+          "id": "f13",
+          "label": "(is_mpu_ready && ((int32_t)(now_ms - ne…",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 48
+        },
+        {
+          "id": "f14",
+          "label": "sensor_if_mpu6050_read(&current_sample)",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 55
+        },
+        {
+          "id": "f15",
+          "label": "(current_sample.is_valid)",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 57
+        },
+        {
+          "id": "f16",
+          "label": "(is_orientation_ready)",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 67
+        },
+        {
+          "id": "f17",
+          "label": "orientation_update(&orientation)",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 69
+        },
+        {
+          "id": "f18",
+          "label": "(is_dht_ready && ((int32_t)(now_ms - ne…",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 81
+        },
+        {
+          "id": "f19",
+          "label": "sensor_if_dht22_read(&temperature_c)",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 86
+        },
+        {
+          "id": "f20",
+          "label": "(is_dht_valid)",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 87
+        },
+        {
+          "id": "f21",
+          "label": "network_service_is_connected()",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 95
+        },
+        {
+          "id": "f22",
+          "label": "((int32_t)(now_ms - next_report_ms) >= …",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 97
+        },
+        {
+          "id": "f23",
+          "label": "sensor_if_report(&sample)",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 99
+        },
+        {
+          "id": "f24",
+          "label": "((int32_t)(now_ms - next_publish_ms) >=…",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 107
+        },
+        {
+          "id": "f25",
+          "label": "(!is_telemetry_ready)",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 109
+        },
+        {
+          "id": "f26",
+          "label": "telemetry_service_init()",
+          "kind": "step",
+          "file": "firmware/services/sensor_service.c",
+          "line": 111
+        },
+        {
+          "id": "f27",
+          "label": "(is_telemetry_ready && sample.is_valid)",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 114
+        },
+        {
+          "id": "f28",
+          "label": "telemetry_service_publish(&telemetry_snapshot)",
+          "kind": "output",
+          "file": "firmware/services/sensor_service.c",
+          "line": 126
+        },
+        {
+          "id": "f29",
+          "label": "(!is_mpu_ready || !is_dht_ready)",
+          "kind": "decision",
+          "file": "firmware/services/sensor_service.c",
+          "line": 131
+        },
+        {
+          "id": "f30",
+          "label": "osal_delay_ms(SENSOR_SERVICE_INITIAL_RETRY_MS)",
+          "kind": "timer",
+          "file": "firmware/services/sensor_service.c",
+          "line": 133
+        },
+        {
+          "id": "f31",
+          "label": "osal_delay_ms(1U)",
+          "kind": "timer",
+          "file": "firmware/services/sensor_service.c",
+          "line": 137
+        }
+      ],
+      "edges": [
+        {
+          "from": "f1",
+          "to": "f2",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f2",
+          "to": "f3",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f3",
+          "to": "f4",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f4",
+          "to": "f5",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f5",
+          "to": "f6",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f6",
+          "to": "f7",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f7",
+          "to": "f8",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f8",
+          "to": "f9",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f9",
+          "to": "f10",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f10",
+          "to": "f11",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f9",
+          "to": "f11",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f11",
+          "to": "f12",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f12",
+          "to": "f13",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f11",
+          "to": "f13",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f13",
+          "to": "f14",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f14",
+          "to": "f15",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f15",
+          "to": "f16",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f16",
+          "to": "f17",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f17",
+          "to": "f18",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f16",
+          "to": "f18",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f15",
+          "to": "f18",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f13",
+          "to": "f18",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f18",
+          "to": "f19",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f19",
+          "to": "f20",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f20",
+          "to": "f21",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f20",
+          "to": "f21",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f18",
+          "to": "f21",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f21",
+          "to": "f22",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f22",
+          "to": "f23",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f23",
+          "to": "f24",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f22",
+          "to": "f24",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f24",
+          "to": "f25",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f25",
+          "to": "f26",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f26",
+          "to": "f27",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f25",
+          "to": "f27",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f27",
+          "to": "f28",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f28",
+          "to": "f29",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f27",
+          "to": "f29",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f24",
+          "to": "f29",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f29",
+          "to": "f30",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f29",
+          "to": "f31",
+          "label": "no",
+          "loop_back": false
+        },
+        {
+          "from": "f30",
+          "to": "f7",
+          "label": "next cycle",
+          "loop_back": true
+        },
+        {
+          "from": "f31",
+          "to": "f7",
+          "label": "next cycle",
+          "loop_back": true
+        }
+      ]
+    },
+    {
+      "task_node_id": "osal_task_entry",
+      "task_label": "osal_task_entry",
+      "entry_fn": "osal_task_entry",
+      "nodes": [
+        {
+          "id": "f1",
+          "label": "Task osal_task_entry",
+          "kind": "entry",
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 21
+        },
+        {
+          "id": "f2",
+          "label": "vPortFree(argument)",
+          "kind": "step",
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 23
+        },
+        {
+          "id": "f3",
+          "label": "task_function(task_context.argument)",
+          "kind": "step",
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 24
+        },
+        {
+          "id": "f4",
+          "label": "vTaskDelete(NULL)",
+          "kind": "step",
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 25
+        }
+      ],
+      "edges": [
+        {
+          "from": "f1",
+          "to": "f2",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f2",
+          "to": "f3",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f3",
+          "to": "f4",
+          "label": "",
+          "loop_back": false
+        }
+      ]
+    },
+    {
+      "task_node_id": "task",
+      "task_label": "task",
+      "entry_fn": "osal_task_entry",
+      "nodes": [
+        {
+          "id": "f1",
+          "label": "Task osal_task_entry",
+          "kind": "entry",
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 21
+        },
+        {
+          "id": "f2",
+          "label": "vPortFree(argument)",
+          "kind": "step",
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 23
+        },
+        {
+          "id": "f3",
+          "label": "task_function(task_context.argument)",
+          "kind": "step",
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 24
+        },
+        {
+          "id": "f4",
+          "label": "vTaskDelete(NULL)",
+          "kind": "step",
+          "file": "firmware/platforms/esp32/osal_freertos.c",
+          "line": 25
+        }
+      ],
+      "edges": [
+        {
+          "from": "f1",
+          "to": "f2",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f2",
+          "to": "f3",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f3",
+          "to": "f4",
+          "label": "",
+          "loop_back": false
+        }
+      ]
+    },
+    {
+      "task_node_id": "blynk_publish",
+      "task_label": "blynk_publish",
+      "entry_fn": "telemetry_worker_task",
+      "nodes": [
+        {
+          "id": "f1",
+          "label": "Task telemetry_worker_task",
+          "kind": "entry",
+          "file": "firmware/platforms/esp32/telemetry_platform.c",
+          "line": 85
+        },
+        {
+          "id": "f2",
+          "label": "Loop forever",
+          "kind": "step",
+          "file": "firmware/platforms/esp32/telemetry_platform.c",
+          "line": 91
+        },
+        {
+          "id": "f3",
+          "label": "(xQueueReceive(telemetry_queue, &snapsh…",
+          "kind": "decision",
+          "file": "firmware/platforms/esp32/telemetry_platform.c",
+          "line": 93
+        },
+        {
+          "id": "f4",
+          "label": "(!telemetry_build_request_url(&snapshot…",
+          "kind": "decision",
+          "file": "firmware/platforms/esp32/telemetry_platform.c",
+          "line": 95
+        },
+        {
+          "id": "f5",
+          "label": "ESP_LOGE(TAG)",
+          "kind": "error",
+          "file": "firmware/platforms/esp32/telemetry_platform.c",
+          "line": 97
+        },
+        {
+          "id": "f6",
+          "label": "esp_http_client_set_url(blynk_http_client)",
+          "kind": "step",
+          "file": "firmware/platforms/esp32/telemetry_platform.c",
+          "line": 101
+        },
+        {
+          "id": "f7",
+          "label": "esp_http_client_set_method(blynk_http_client)",
+          "kind": "step",
+          "file": "firmware/platforms/esp32/telemetry_platform.c",
+          "line": 104
+        },
+        {
+          "id": "f8",
+          "label": "esp_http_client_perform(blynk_http_client)",
+          "kind": "step",
+          "file": "firmware/platforms/esp32/telemetry_platform.c",
+          "line": 108
+        },
+        {
+          "id": "f9",
+          "label": "esp_http_client_get_status_code(blynk_http_client)",
+          "kind": "step",
+          "file": "firmware/platforms/esp32/telemetry_platform.c",
+          "line": 111
+        },
+        {
+          "id": "f10",
+          "label": "ESP_LOGI(TAG)",
+          "kind": "output",
+          "file": "firmware/platforms/esp32/telemetry_platform.c",
+          "line": 114
+        },
+        {
+          "id": "f11",
+          "label": "ESP_LOGW(TAG)",
+          "kind": "error",
+          "file": "firmware/platforms/esp32/telemetry_platform.c",
+          "line": 119
+        },
+        {
+          "id": "f12",
+          "label": "esp_err_to_name(result)",
+          "kind": "step",
+          "file": "firmware/platforms/esp32/telemetry_platform.c",
+          "line": 120
+        }
+      ],
+      "edges": [
+        {
+          "from": "f1",
+          "to": "f2",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f2",
+          "to": "f3",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f3",
+          "to": "f4",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f4",
+          "to": "f5",
+          "label": "yes",
+          "loop_back": false
+        },
+        {
+          "from": "f4",
+          "to": "f6",
+          "label": "no",
+          "loop_back": false
+        },
+        {
+          "from": "f6",
+          "to": "f7",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f7",
+          "to": "f8",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f8",
+          "to": "f9",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f9",
+          "to": "f10",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f10",
+          "to": "f11",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f11",
+          "to": "f12",
+          "label": "",
+          "loop_back": false
+        },
+        {
+          "from": "f5",
+          "to": "f2",
+          "label": "next cycle",
+          "loop_back": true
+        },
+        {
+          "from": "f12",
+          "to": "f2",
+          "label": "next cycle",
+          "loop_back": true
+        },
+        {
+          "from": "f3",
+          "to": "f2",
+          "label": "next cycle",
+          "loop_back": true
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "headline": "The DHT22 GPIO use is identified, but its physical pin number cannot be verified from the provided snippets.",
+    "node_count": 0,
+    "edge_count": 0,
+    "warnings": []
+  },
+  "diagrams": {
+    "hld": {
+      "title": "High-Level Design",
+      "mermaid": "flowchart TD\n    subgraph hld_lane_utility[\"Utilities\"]\n        utils_helpers[\"utils/helpers<br/>utility · 2 files\"]\n        utils_logger[\"utils/logger<br/>utility · 2 files\"]\n    end\n    subgraph hld_lane_hardware[\"Hardware\"]\n        hw_mpu6050_i2c[\"MPU6050 I2C Device<br/>i2c_device\"]\n    end\n    subgraph hld_lane_network[\"Network\"]\n        net_http_client(\"HTTP<br/>http\")\n        net_wifi(\"WiFi<br/>wifi\")\n    end\n    main([\"main<br/>entrypoint · 1 file\"])\n    app[\"app<br/>application · 2 files\"]\n    platforms_esp32[[\"platforms/esp32<br/>platform · 4 files\"]]\n    bsp[\"bsp<br/>board · 2 files\"]\n    osal[\"osal<br/>abstraction · 1 file\"]\n    configs[(\"configs<br/>configuration · 6 files\")]\n    interfaces[\"interfaces<br/>module · 3 files\"]\n    modules_orientation[\"modules/orientation<br/>module · 2 files\"]\n    modules_telemetry[\"modules/telemetry<br/>module · 2 files\"]\n    services[\"services<br/>module · 6 files\"]\n    sink_storage_manager[(\"Storage Manager<br/>nvs\")]\n    app -->|osal.h| osal\n    app -->|network_service.h| services\n    app -->|logger.h| utils_logger\n    bsp -->|app_config.h| configs\n    main -->|app.h| app\n    modules_telemetry -->|telemetry_if.h| interfaces\n    platforms_esp32 -->|app_config.h| configs\n    platforms_esp32 -->|network_if.h| interfaces\n    platforms_esp32 -->|telemetry_mapping.h| modules_telemetry\n    platforms_esp32 -->|osal.h| osal\n    platforms_esp32 -->|logger.h| utils_logger\n    services -->|app_config.h| configs\n    services -->|network_if.h| interfaces\n    services -->|orientation.h| modules_orientation\n    services -->|telemetry_mapping.h| modules_telemetry\n    services -->|osal.h| osal\n    main -->|writes| sink_storage_manager\n    app -->|drives| hw_mpu6050_i2c\n    app -->|publishes| net_http_client\n    app -->|publishes| net_wifi\n    classDef hldEntrypoint fill:#1f6feb,stroke:#4c8dff,color:#ffffff,stroke-width:2px\n    classDef hldApplication fill:#123324,stroke:#2ecf82,color:#c9f5e0,stroke-width:2px\n    classDef hldDriver fill:#12283a,stroke:#4aa3df,color:#cfe8f7,stroke-width:2px\n    classDef hldPlatform fill:#2b1f3a,stroke:#a97fe0,color:#e3d5f7,stroke-width:2px\n    classDef hldBoard fill:#3a1e12,stroke:#e2703a,color:#ffd9c7,stroke-width:2px\n    classDef hldUtility fill:#22262b,stroke:#8b949e,color:#d6dde5,stroke-width:2px\n    classDef hldConfiguration fill:#3a2f12,stroke:#d9a441,color:#f2e3c0,stroke-width:2px\n    classDef hldHardware fill:#3a1e12,stroke:#e2703a,color:#ffd9c7,stroke-width:2px\n    classDef hldNetwork fill:#12283a,stroke:#4aa3df,color:#cfe8f7,stroke-width:2px\n    classDef hldSink fill:#123324,stroke:#2ecf82,color:#c9f5e0,stroke-width:2px\n    class main hldEntrypoint\n    class app hldApplication\n    class platforms_esp32 hldPlatform\n    class bsp hldBoard\n    class osal hldPlatform\n    class utils_helpers hldUtility\n    class utils_logger hldUtility\n    class configs hldConfiguration\n    class hw_mpu6050_i2c hldHardware\n    class net_http_client hldNetwork\n    class net_wifi hldNetwork\n    class sink_storage_manager hldSink",
+      "generation_error": "Model diagram rejected: HLD ignores evidenced peripherals — include at least one peripheral name or pin",
+      "authored_by_model": false,
+      "node_notes": {
+        "main": "main is a entrypoint module at main. It owns 1 source file this architecture is built from.",
+        "sink_storage_manager": "Storage Manager is a step in this firmware's runtime flow. The cite nvs is the source evidence for it.",
+        "app": "app is a application module at app. It owns 2 source files this architecture is built from.",
+        "platforms_esp32": "platforms/esp32 is a platform module at platforms/esp32. It owns 4 source files this architecture is built from.",
+        "interfaces": "interfaces is a module module at interfaces. It owns 3 source files this architecture is built from.",
+        "services": "services is a module module at services. It owns 6 source files this architecture is built from.",
+        "net_wifi": "WiFi is a step in this firmware's runtime flow. The cite wifi is the source evidence for it.",
+        "bsp": "bsp is a board module at bsp. It owns 2 source files this architecture is built from.",
+        "configs": "configs is a configuration module at configs. It owns 6 source files this architecture is built from.",
+        "utils_logger": "utils/logger is a utility module at utils/logger. It owns 2 source files this architecture is built from.",
+        "hw_mpu6050_i2c": "MPU6050 I2C Device is a step in this firmware's runtime flow. The cite i2c_device is the source evidence for it.",
+        "osal": "osal is a abstraction module at osal. It owns 1 source file this architecture is built from.",
+        "modules_telemetry": "modules/telemetry is a module module at modules/telemetry. It owns 2 source files this architecture is built from.",
+        "net_http_client": "HTTP is a step in this firmware's runtime flow. The cite http is the source evidence for it.",
+        "modules_orientation": "modules/orientation is a module module at modules/orientation. It owns 2 source files this architecture is built from.",
+        "utils_helpers": "utils/helpers is a utility module at utils/helpers. It owns 2 source files this architecture is built from."
+      }
+    },
+    "lld": {
+      "title": "Low-Level Design (Firmware Workflow)",
+      "mermaid": "flowchart TD\n  subgraph Boot_and_Application\n    boot[\"Enter firmware<br/>main/entry.c: app_main\"]\n    start[\"Start network and acquisition<br/>firmware/app/app.c: app_start\"]\n    network_check{\"Network service started? — firmware/app/app.c: app_start\"}\n    offline[\"Log offline warning and continue<br/>firmware/app/app.c: app_start\"]\n    create_sensor[\"Create sensor service task<br/>firmware/app/app.c: osal_task_create\"]\n    sensor_init[\"Initialize sensors, orientation, and telemetry<br/>firmware/services/sensor_ser…\"]\n    boot -->  start -->  network_check\n    network_check -->|no| offline -->  create_sensor\n    network_check -->|yes| create_sensor\n    create_sensor -->  sensor_init\n  end\n\n  subgraph Sensor_Service_Task\n    loop[\"Check scheduled sensor and report work<br/>firmware/services/sensor_service.c: …\"]\n    mpu_due{\"MPU ready and sample deadline reached? — firmware/services/sensor_service.c\"}\n    mpu_read[\"Read MPU6050 sample<br/>firmware/services/sensor_service.c: sensor_if_mpu6050_r…\"]\n    sample_valid{\"MPU sample valid? — firmware/services/sensor_service.c\"}\n    update_orientation[\"Update complementary orientation estimate<br/>firmware/services/sensor_service.…\"]\n    dht_due{\"DHT22 ready and read deadline reached? — firmware/services/sensor_service.c\"}\n    dht_read[\"Read DHT22 temperature and humidity<br/>firmware/services/sensor_service.c: sen…\"]\n    report_due{\"Report deadline reached? — firmware/services/sensor_service.c\"}\n    report[\"Report current measurements and orientation<br/>firmware/services/sensor_servic…\"]\n    publish_due{\"Publish deadline reached? — firmware/services/sensor_service.c\"}\n    telemetry_ready{\"Telemetry adapter ready? — firmware/services/sensor_service.c\"}\n    retry_telemetry[\"Retry telemetry initialization<br/>firmware/services/sensor_service.c: telemetr…\"]\n    publish_gate{\"Adapter ready and MPU sample valid? — firmware/services/sensor_service.c\"}\n    submit[\"Check connectivity and queue snapshot<br/>firmware/services/telemetry_service.c…\"]\n    delay[\"Yield for 1 ms or retry after 1000 ms<br/>firmware/services/sensor_service.c: o…\"]\n\n    sensor_init -->  loop\n    loop -->  mpu_due\n    mpu_due -->|yes| mpu_read -->  sample_valid\n    sample_valid -->|yes| update_orientation -->  dht_due\n    sample_valid -->|no| dht_due\n    mpu_due -->|no| dht_due\n    dht_due -->|yes| dht_read -->  report_due\n    dht_due -->|no| report_due\n    report_due -->|yes| report -->  publish_due\n    report_due -->|no| publish_due\n    publish_due -->|yes| telemetry_ready\n    publish_due -->|no| delay\n    telemetry_ready -->|no| retry_telemetry -->  publish_gate\n    telemetry_ready -->|yes| publish_gate\n    publish_gate -->|yes| submit -->  delay\n    publish_gate -->|no| delay\n    delay -->|period_ms=1#59; retry period_ms=1000 when a sensor is unavailable| loop\n  end\n\n  subgraph Blynk_Publisher_Task\n    queue_wait[\"Wait for queued telemetry snapshot<br/>firmware/platforms/esp32/telemetry_platf…\"]\n    url_check{\"Snapshot URL formatted? — firmware/platforms/esp32/telemetry_platform.c: teleme…\"}\n    format_error[\"Log URL formatting failure<br/>firmware/platforms/esp32/telemetry_platform.c: t…\"]\n    http_send[\"Perform HTTPS GET batch update<br/>firmware/platforms/esp32/telemetry_platform.…\"]\n    http_ok{\"HTTP request succeeded with status 200? — firmware/platforms/esp32/telemetry_pl…\"}\n    accepted[\"Log accepted Blynk update<br/>firmware/platforms/esp32/telemetry_platform.c: te…\"]\n    failed[\"Log HTTPS batch-update failure<br/>firmware/platforms/esp32/telemetry_platform.…\"]\n\n    queue_wait -->  url_check\n    url_check -->|no| format_error -->  queue_wait\n    url_check -->|yes| http_send -->  http_ok\n    http_ok -->|yes| accepted -->  queue_wait\n    http_ok -->|no| failed -->  queue_wait\n  end",
+      "authored_by_model": true,
+      "node_notes": {
+        "start": "Start network and acquisition is a step in this firmware's runtime flow. The cite firmware/app/app.c: app_start is the source evidence for it.",
+        "loop": "Check scheduled sensor and report work is a step in this firmware's runtime flow. The cite firmware/services/sensor_service.c: … is the source evidence for it.",
+        "create_sensor": "Create sensor service task is a step in this firmware's runtime flow. The cite firmware/app/app.c: osal_task_create is the source evidence for it.",
+        "accepted": "Log accepted Blynk update is a step in this firmware's runtime flow. The cite firmware/platforms/esp32/telemetry_platform.c: te… is the source evidence for it.",
+        "telemetry_ready": "Telemetry adapter ready? — firmware/services/sensor_service.c is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "sensor_init": "Initialize sensors, orientation, and telemetry is a step in this firmware's runtime flow. The cite firmware/services/sensor_ser… is the source evidence for it.",
+        "update_orientation": "Update complementary orientation estimate is a step in this firmware's runtime flow. The cite firmware/services/sensor_service.… is the source evidence for it.",
+        "report": "Report current measurements and orientation is a step in this firmware's runtime flow. The cite firmware/services/sensor_servic… is the source evidence for it.",
+        "report_due": "Report deadline reached? — firmware/services/sensor_service.c is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "retry_telemetry": "Retry telemetry initialization is a step in this firmware's runtime flow. The cite firmware/services/sensor_service.c: telemetr… is the source evidence for it.",
+        "offline": "Log offline warning and continue is a step in this firmware's runtime flow. The cite firmware/app/app.c: app_start is the source evidence for it.",
+        "publish_due": "Publish deadline reached? — firmware/services/sensor_service.c is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "queue_wait": "Wait for queued telemetry snapshot is a step in this firmware's runtime flow. The cite firmware/platforms/esp32/telemetry_platf… is the source evidence for it.",
+        "network_check": "Network service started? — firmware/app/app.c: app_start is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "http_ok": "HTTP request succeeded with status 200? — firmware/platforms/esp32/telemetry_pl… is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "http_send": "Perform HTTPS GET batch update is a step in this firmware's runtime flow. The cite firmware/platforms/esp32/telemetry_platform.… is the source evidence for it.",
+        "mpu_due": "MPU ready and sample deadline reached? — firmware/services/sensor_service.c is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "url_check": "Snapshot URL formatted? — firmware/platforms/esp32/telemetry_platform.c: teleme… is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "dht_due": "DHT22 ready and read deadline reached? — firmware/services/sensor_service.c is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "mpu_read": "Read MPU6050 sample is a step in this firmware's runtime flow. The cite firmware/services/sensor_service.c: sensor_if_mpu6050_r… is the source evidence for it.",
+        "submit": "Check connectivity and queue snapshot is a step in this firmware's runtime flow. The cite firmware/services/telemetry_service.c… is the source evidence for it.",
+        "delay": "Yield for 1 ms or retry after 1000 ms is a step in this firmware's runtime flow. The cite firmware/services/sensor_service.c: o… is the source evidence for it.",
+        "sample_valid": "MPU sample valid? — firmware/services/sensor_service.c is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "publish_gate": "Adapter ready and MPU sample valid? — firmware/services/sensor_service.c is part of this project's architecture. Select neighbouring boxes to see how it is wired into the rest of the system.",
+        "failed": "Log HTTPS batch-update failure is a step in this firmware's runtime flow. The cite firmware/platforms/esp32/telemetry_platform.… is the source evidence for it.",
+        "boot": "Bootstraps firmware startup and initializes core subsystems.",
+        "format_error": "Log URL formatting failure is a step in this firmware's runtime flow. The cite firmware/platforms/esp32/telemetry_platform.c: t… is the source evidence for it.",
+        "dht_read": "Read DHT22 temperature and humidity is a step in this firmware's runtime flow. The cite firmware/services/sensor_service.c: sen… is the source evidence for it."
+      }
+    },
+    "sequence": {
+      "title": "Sequence Diagram",
+      "mermaid": "sequenceDiagram\n    autonumber\n    participant sensor_service as Task sensor_service\n    participant osal_task_entry as Task osal_task_entry\n    participant task as Task task\n    participant blynk_publish as Task blynk_publish\n    participant boot as Boot / app_main\n    boot->>sensor_service: creates\n    boot->>osal_task_entry: creates\n    boot->>task: creates\n    boot->>blynk_publish: creates\n    loop task cycle\n        sensor_service->>boot: osal_uptime_ms()\n        sensor_service->>boot: sensor_if_mpu6050_init()\n        sensor_service->>boot: sensor_if_dht22_init()\n        sensor_service->>boot: orientation_init(&orientation)\n        sensor_service->>boot: telemetry_service_init()\n        sensor_service->>boot: Loop forever\n        sensor_service->>boot: osal_uptime_ms()\n        sensor_service->>boot: (!is_mpu_ready)\n        alt (!is_mpu_ready)\n            sensor_service->>boot: sensor_if_mpu6050_init()\n        else no\n            sensor_service-->>sensor_service: (!is_dht_ready)\n        end\n        sensor_service->>boot: (!is_dht_ready)\n        alt (!is_dht_ready)\n            sensor_service->>boot: sensor_if_dht22_init()\n        else no\n            sensor_service-->>sensor_service: (is_mpu_ready && ((int32_t)(now_ms - ne…\n        end\n        sensor_service->>boot: (is_mpu_ready && ((int32_t)(now_ms - ne…\n        alt (is_mpu_ready && ((int32_t)(now_ms - ne…\n            sensor_service->>boot: sensor_if_mpu6050_read(&current_sample)\n        else no\n            sensor_service-->>sensor_service: (is_dht_ready && ((int32_t)(now_ms - ne…\n        end\n        sensor_service->>boot: (current_sample.is_valid)\n        alt (current_sample.is_valid)\n            sensor_service->>boot: (is_orientation_ready)\n        else no\n            sensor_service-->>sensor_service: (is_dht_ready && ((int32_t)(now_ms - ne…\n        end\n        alt (is_orientation_ready)\n            sensor_service->>boot: orientation_update(&orientation)\n        else no\n            sensor_service-->>sensor_service: (is_dht_ready && ((int32_t)(now_ms - ne…\n        end\n        sensor_service->>boot: (is_dht_ready && ((int32_t)(now_ms - ne…\n        alt (is_dht_ready && ((int32_t)(now_ms - ne…\n            sensor_service->>boot: sensor_if_dht22_read(&temperature_c)\n        else no\n            sensor_service-->>sensor_service: network_service_is_connected()\n        end\n        sensor_service->>boot: (is_dht_valid)\n        alt (is_dht_valid)\n            sensor_service->>boot: network_service_is_connected()\n        else no\n            sensor_service-->>sensor_service: network_service_is_connected()\n        end\n        sensor_service->>boot: ((int32_t)(now_ms - next_report_ms) #gt;= …\n        alt ((int32_t)(now_ms - next_report_ms) #gt;= …\n            sensor_service->>boot: sensor_if_report(&sample)\n        else no\n            sensor_service-->>sensor_service: ((int32_t)(now_ms - next_publish_ms) #gt;=…\n        end\n        sensor_service->>boot: ((int32_t)(now_ms - next_publish_ms) #gt;=…\n        alt ((int32_t)(now_ms - next_publish_ms) #gt;=…\n            sensor_service->>boot: (!is_telemetry_ready)\n        else no\n            sensor_service-->>sensor_service: (!is_mpu_ready || !is_dht_ready)\n        end\n        alt (!is_telemetry_ready)\n            sensor_service->>boot: telemetry_service_init()\n        else no\n            sensor_service-->>sensor_service: (is_telemetry_ready && sample.is_valid)\n        end\n        sensor_service->>boot: (is_telemetry_ready && sample.is_valid)\n        alt (is_telemetry_ready && sample.is_valid)\n            sensor_service->>boot: telemetry_service_publish(&telemetry_snapshot)\n        else no\n            sensor_service-->>sensor_service: (!is_mpu_ready || !is_dht_ready)\n        end\n        sensor_service->>boot: (!is_mpu_ready || !is_dht_ready)\n        alt (!is_mpu_ready || !is_dht_ready)\n            sensor_service->>boot: osal_delay_ms(SENSOR_SERVICE_INITIAL_RETRY_MS)\n        else no\n            sensor_service-->>sensor_service: osal_delay_ms(1U)\n        end\n    end\n    osal_task_entry->>boot: vPortFree(argument)\n    osal_task_entry->>boot: task_function(task_context.argument)\n    osal_task_entry->>boot: vTaskDelete(NULL)\n    task->>boot: vPortFree(argument)\n    task->>boot: task_function(task_context.argument)\n    task->>boot: vTaskDelete(NULL)\n    loop task cycle\n        blynk_publish->>boot: Loop forever\n        blynk_publish->>boot: (xQueueReceive(telemetry_queue, &snapsh…\n        alt (!telemetry_build_request_url(&snapshot…\n            blynk_publish->>boot: ESP_LOGE(TAG)\n        else no\n            blynk_publish-->>blynk_publish: esp_http_client_set_url(blynk_http_client)\n        end\n        blynk_publish->>boot: esp_http_client_set_method(blynk_http_client)\n        blynk_publish->>boot: esp_http_client_perform(blynk_http_client)\n        blynk_publish->>boot: esp_http_client_get_status_code(blynk_http_client)\n        blynk_publish->>boot: ESP_LOGI(TAG)\n        blynk_publish->>boot: ESP_LOGW(TAG)\n        blynk_publish->>boot: esp_err_to_name(result)\n    end",
+      "participants": [
+        "sensor_service",
+        "osal_task_entry",
+        "task",
+        "blynk_publish",
+        "boot"
+      ],
+      "generated_from": [
+        "main/entry.c",
+        "firmware/app/app.c",
+        "firmware/platforms/esp32/osal_freertos.c",
+        "firmware/platforms/esp32/telemetry_platform.c",
+        "firmware/configs/app_config.h",
+        "firmware/platforms/esp32/network_platform.c"
+      ],
+      "generation_error": "Model diagram rejected: no messages",
+      "grounding": 1.0,
+      "authored_by_model": false
+    },
+    "model_pass_expected": true
+  },
+  "change_log": [],
+  "unresolved": [
+    {
+      "kind": "gpio_indirect",
+      "file": "firmware/platforms/esp32/sensor_platform.c",
+      "line": 302,
+      "symbol": "gpio_config",
+      "hint": "DHT22 data pin is APP_DHT22_DATA_GPIO, but the provided snippets do not show its numeric definition; resolve from firmware/configs/app_config.h."
+    }
+  ],
+  "read_only": false,
+  "graph_version": 15,
+  "generation": {
+    "mode": "hybrid_refine",
+    "model": "local_openai_proxy/gpt-6-luna",
+    "triggered_by": "user_refresh",
+    "analyzed_at_ms": 1792056734204,
+    "input_files": [
+      "CMakeLists.txt",
+      "firmware/app/app.c",
+      "firmware/app/app.h",
+      "firmware/bsp/board.c",
+      "firmware/bsp/board.h",
+      "firmware/configs/app_config.h",
+      "firmware/configs/app_secrets.example.h",
+      "firmware/configs/app_secrets.h",
+      "firmware/configs/build_config.h",
+      "firmware/configs/feature_config.h",
+      "firmware/configs/platform_config.h",
+      "firmware/interfaces/network_if.h",
+      "firmware/interfaces/sensor_if.h",
+      "firmware/interfaces/telemetry_if.h",
+      "firmware/modules/orientation/orientation.c",
+      "firmware/modules/orientation/orientation.h",
+      "firmware/modules/telemetry/telemetry_mapping.c",
+      "firmware/modules/telemetry/telemetry_mapping.h",
+      "firmware/osal/osal.h",
+      "firmware/platforms/esp32/network_platform.c",
+      "firmware/platforms/esp32/osal_freertos.c",
+      "firmware/platforms/esp32/sensor_platform.c",
+      "firmware/platforms/esp32/telemetry_platform.c",
+      "firmware/services/network_service.c",
+      "firmware/services/network_service.h",
+      "firmware/services/sensor_service.c",
+      "firmware/services/sensor_service.h",
+      "firmware/services/telemetry_service.c",
+      "firmware/services/telemetry_service.h",
+      "firmware/utils/helpers/helpers.c",
+      "firmware/utils/helpers/helpers.h",
+      "firmware/utils/logger/logger.c",
+      "firmware/utils/logger/logger.h",
+      "main/entry.c",
+      "sdkconfig",
+      "sdkconfig.defaults"
+    ],
+    "token_usage": {
+      "prompt_tokens": 11906,
+      "completion_tokens": 845
+    }
+  },
+  "sync_metadata": {
+    "project_file": "",
+    "content_hash": "",
+    "pending_patches": [],
+    "last_diff": {
+      "from_revision": "b15ede954b5a3e475338ba1d73b2382a",
+      "to_revision": "dd27c29280fdf19d7f01078072c75532",
+      "nodes_added": [],
+      "nodes_removed": [],
+      "nodes_changed": [],
+      "edges_added": [],
+      "edges_removed": [
+        "e_sensor_service_reads_mpu6050",
+        "e_sensor_service_depends_on_wifi",
+        "e_blynk_publish_uses_http",
+        "e_sensor_service_publishes_blynk",
+        "e_event_handler_reconnects_wifi"
+      ]
+    }
+  },
+  "validation_state": {
+    "valid": true,
+    "error_count": 0,
+    "warning_count": 0,
+    "validated_at_ms": 1792056734204
+  }
+}

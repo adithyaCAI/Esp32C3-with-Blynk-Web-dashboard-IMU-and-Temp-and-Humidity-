@@ -1,0 +1,79 @@
+flowchart TD
+  subgraph Startup["Application startup"]
+    boot["Enter firmware<br/>main/entry.c:5"]
+    start["Start network and create sensor task<br/>firmware/app/app.c:19"]
+    network_ok{"network_service_start succeeded — firmware/app/app.c:23"}
+    offline["Log offline warning#59; continue startup<br/>firmware/app/app.c:26"]
+    spawn["Create sensor_service task<br/>firmware/app/app.c:30"]
+    spawn_ok{"Task creation succeeded — firmware/app/app.c:37"}
+    task_error["Log task creation failure<br/>firmware/app/app.c:39"]
+  end
+
+  boot -->|app_start| start
+  start -->    network_ok
+  network_ok -->|No| offline
+  network_ok -->|Yes| spawn
+  offline -->    spawn
+  spawn -->    spawn_ok
+  spawn_ok -->|No| task_error
+  spawn_ok -->|Yes| sensor_init
+
+  subgraph SensorTask["sensor_service task"]
+    sensor_init["Initialize MPU6050 and DHT22<br/>firmware/services/sensor_service.c:31"]
+    init_orientation["Initialize orientation state<br/>firmware/services/sensor_service.c:33"]
+    init_telemetry["Initialize telemetry publisher<br/>firmware/services/sensor_service.c:36"]
+    tick["Read uptime and run due work<br/>firmware/services/sensor_service.c:43"]
+    mpu_ready{"MPU6050 ready — firmware/services/sensor_service.c:47"}
+    retry_mpu["Retry MPU6050 initialization<br/>firmware/services/sensor_service.c:49"]
+    sample_due{"MPU sample due — firmware/services/sensor_service.c:53"}
+    read_mpu["Read acceleration and gyro sample<br/>firmware/services/sensor_service.c:59"]
+    sample_valid{"MPU sample valid — firmware/services/sensor_service.c:62"}
+    update_orientation["Update complementary orientation filter<br/>firmware/services/sensor_service.c:…"]
+    dht_ready{"DHT22 ready — firmware/services/sensor_service.c:85"}
+    read_dht["Read temperature and humidity<br/>firmware/services/sensor_service.c:90"]
+    report_due{"Report interval reached — firmware/services/sensor_service.c:101"}
+    report["Report readings and orientation<br/>firmware/services/sensor_service.c:103"]
+    publish_due{"Publish interval reached — firmware/services/sensor_service.c:112"}
+    telemetry_ready{"Telemetry publisher ready — firmware/services/sensor_service.c:114"}
+    retry_telemetry["Retry telemetry initialization<br/>firmware/services/sensor_service.c:116"]
+    publish_valid{"MPU and DHT readings valid — firmware/services/sensor_service.c:121"}
+    publish["Submit snapshot to telemetry service<br/>firmware/services/sensor_service.c:131"]
+    delay["Delay before next loop iteration<br/>firmware/services/sensor_service.c:138"]
+  end
+
+  sensor_init -->    init_orientation -->    init_telemetry -->    tick
+  tick -->    mpu_ready
+  mpu_ready -->|No| retry_mpu -->    sample_due
+  mpu_ready -->|Yes| sample_due
+  sample_due -->|Yes| read_mpu -->    sample_valid
+  sample_due -->|No| dht_ready
+  sample_valid -->|Yes| update_orientation -->    dht_ready
+  sample_valid -->|No| dht_ready
+  dht_ready -->|Yes| read_dht -->    report_due
+  dht_ready -->|No| report_due
+  report_due -->|Yes| report -->    publish_due
+  report_due -->|No| publish_due
+  publish_due -->|Yes| telemetry_ready
+  publish_due -->|No| delay
+  telemetry_ready -->|No| retry_telemetry -->    publish_valid
+  telemetry_ready -->|Yes| publish_valid
+  publish_valid -->|Yes| publish -->    delay
+  publish_valid -->|No| delay
+  delay -->|1 ms normally#59; 1000 ms if sensor is not ready| tick
+
+  subgraph PublishTask["blynk_publish worker task"]
+    wait_snapshot["Wait for queued snapshot<br/>firmware/platforms/esp32/telemetry_platform.c:76"]
+    url_valid{"Batch URL formatted — firmware/platforms/esp32/telemetry_platform.c:84"}
+    url_error["Log URL formatting error<br/>firmware/platforms/esp32/telemetry_platform.c:86"]
+    send_request["Set URL and perform HTTPS GET<br/>firmware/platforms/esp32/telemetry_platform.c…"]
+    http_ok{"HTTP request succeeded with status 200 — firmware/platforms/esp32/telemetry_pla…"}
+    accepted["Log accepted Blynk update<br/>firmware/platforms/esp32/telemetry_platform.c:105"]
+    failed["Log HTTPS update failure<br/>firmware/platforms/esp32/telemetry_platform.c:110"]
+  end
+
+  publish -->|telemetry_if_publish queues snapshot| wait_snapshot
+  wait_snapshot -->    url_valid
+  url_valid -->|No| url_error -->    wait_snapshot
+  url_valid -->|Yes| send_request -->    http_ok
+  http_ok -->|Yes| accepted -->    wait_snapshot
+  http_ok -->|No| failed -->    wait_snapshot

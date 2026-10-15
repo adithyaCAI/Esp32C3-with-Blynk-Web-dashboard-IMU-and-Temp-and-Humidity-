@@ -1,0 +1,65 @@
+flowchart TD
+    subgraph hld_lane_utility["Utilities"]
+        utils_helpers["utils/helpers<br/>utility · 2 files"]
+        utils_logger["utils/logger<br/>utility · 2 files"]
+    end
+    subgraph hld_lane_hardware["Hardware"]
+        hw_mpu6050_i2c["MPU6050 I2C Device<br/>i2c_device"]
+    end
+    subgraph hld_lane_network["Network"]
+        net_http_client("HTTP<br/>http")
+        net_wifi("WiFi<br/>wifi")
+    end
+    main(["main<br/>entrypoint · 1 file"])
+    app["app<br/>application · 2 files"]
+    platforms_esp32[["platforms/esp32<br/>platform · 4 files"]]
+    bsp["bsp<br/>board · 2 files"]
+    osal["osal<br/>abstraction · 1 file"]
+    configs[("configs<br/>configuration · 5 files")]
+    interfaces["interfaces<br/>module · 3 files"]
+    modules_orientation["modules/orientation<br/>module · 2 files"]
+    modules_telemetry["modules/telemetry<br/>module · 2 files"]
+    services["services<br/>module · 6 files"]
+    sink_storage_manager[("Storage Manager<br/>nvs")]
+    app -->|osal.h| osal
+    app -->|network_service.h| services
+    app -->|logger.h| utils_logger
+    bsp -->|app_config.h| configs
+    main -->|app.h| app
+    modules_telemetry -->|telemetry_if.h| interfaces
+    platforms_esp32 -->|app_config.h| configs
+    platforms_esp32 -->|network_if.h| interfaces
+    platforms_esp32 -->|telemetry_mapping.h| modules_telemetry
+    platforms_esp32 -->|osal.h| osal
+    platforms_esp32 -->|logger.h| utils_logger
+    services -->|app_config.h| configs
+    services -->|network_if.h| interfaces
+    services -->|orientation.h| modules_orientation
+    services -->|telemetry_mapping.h| modules_telemetry
+    services -->|osal.h| osal
+    main -->|writes| sink_storage_manager
+    app -->|drives| hw_mpu6050_i2c
+    app -->|publishes| net_http_client
+    app -->|publishes| net_wifi
+    classDef hldEntrypoint fill:#1f6feb,stroke:#4c8dff,color:#ffffff,stroke-width:2px
+    classDef hldApplication fill:#123324,stroke:#2ecf82,color:#c9f5e0,stroke-width:2px
+    classDef hldDriver fill:#12283a,stroke:#4aa3df,color:#cfe8f7,stroke-width:2px
+    classDef hldPlatform fill:#2b1f3a,stroke:#a97fe0,color:#e3d5f7,stroke-width:2px
+    classDef hldBoard fill:#3a1e12,stroke:#e2703a,color:#ffd9c7,stroke-width:2px
+    classDef hldUtility fill:#22262b,stroke:#8b949e,color:#d6dde5,stroke-width:2px
+    classDef hldConfiguration fill:#3a2f12,stroke:#d9a441,color:#f2e3c0,stroke-width:2px
+    classDef hldHardware fill:#3a1e12,stroke:#e2703a,color:#ffd9c7,stroke-width:2px
+    classDef hldNetwork fill:#12283a,stroke:#4aa3df,color:#cfe8f7,stroke-width:2px
+    classDef hldSink fill:#123324,stroke:#2ecf82,color:#c9f5e0,stroke-width:2px
+    class main hldEntrypoint
+    class app hldApplication
+    class platforms_esp32 hldPlatform
+    class bsp hldBoard
+    class osal hldPlatform
+    class utils_helpers hldUtility
+    class utils_logger hldUtility
+    class configs hldConfiguration
+    class hw_mpu6050_i2c hldHardware
+    class net_http_client hldNetwork
+    class net_wifi hldNetwork
+    class sink_storage_manager hldSink

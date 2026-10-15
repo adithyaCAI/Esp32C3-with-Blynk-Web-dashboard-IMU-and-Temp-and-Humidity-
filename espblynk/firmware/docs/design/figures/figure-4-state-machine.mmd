@@ -1,0 +1,27 @@
+flowchart LR
+    state_entry(("telemetry_worker_task entry<br/>start of cycle"))
+    state_f1("Task telemetry_worker_task<br/>firmware/platforms/esp32/telemetry_platform.c:85")
+    state_f2("Loop forever<br/>firmware/platforms/esp32/telemetry_platform.c:91")
+    state_f3{"#40;xQueueReceive#40;telemetry_queue, &snapsh… — firmware/platforms/esp32/telemetry_pla…"}
+    state_f4{"#40;!telemetry_build_request_url#40;&snapshot… — firmware/platforms/esp32/telemetry_pla…"}
+    state_f5(("ESP_LOGE#40;TAG#41;<br/>firmware/platforms/esp32/telemetry_platform.c:97"))
+    state_f6("esp_http_client_set_url#40;blynk_http_client#41;<br/>firmware/platforms/esp32/telemetry_p…")
+    state_f7("esp_http_client_set_method#40;blynk_http_client#41;<br/>firmware/platforms/esp32/telemetr…")
+    state_f8("esp_http_client_perform#40;blynk_http_client#41;<br/>firmware/platforms/esp32/telemetry_p…")
+    state_f9("esp_http_client_get_status_code#40;blynk_http_clie…<br/>firmware/platforms/esp32/telem…")
+    state_f10("ESP_LOGI#40;TAG#41;<br/>firmware/platforms/esp32/telemetry_platform.c:1…")
+    state_f11(("ESP_LOGW#40;TAG#41;<br/>firmware/platforms/esp32/telemetry_platform.c:1…"))
+    state_f12("esp_err_to_name#40;result#41;<br/>firmware/platforms/esp32/telemetry_platform.c:1…")
+    state_entry --> state_f1
+    state_f1 --> state_f2
+    state_f2 --> state_f3
+    state_f3 -->|yes| state_f4
+    state_f4 -->|yes| state_f5
+    state_f5 -->|no| state_f6
+    state_f6 --> state_f7
+    state_f7 --> state_f8
+    state_f8 --> state_f9
+    state_f9 --> state_f10
+    state_f10 --> state_f11
+    state_f11 --> state_f12
+    state_f12 -.->|next cycle| state_entry

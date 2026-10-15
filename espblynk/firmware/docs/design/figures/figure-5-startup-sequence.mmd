@@ -1,0 +1,14 @@
+sequenceDiagram
+    autonumber
+    participant boot as Boot / app_main
+    participant mpu6050_i2c as MPU6050 I2C Device
+    participant blynk_publish
+    participant osal_task_entry
+    participant sensor_service
+    participant task
+    boot->>mpu6050_i2c: configure i2c_device
+    mpu6050_i2c-->boot: ready or error
+    boot->>blynk_publish: start telemetry_worker_task
+    boot->>osal_task_entry: start osal_task_entry
+    boot->>sensor_service: start sensor_service_task
+    boot->>task: start osal_task_entry

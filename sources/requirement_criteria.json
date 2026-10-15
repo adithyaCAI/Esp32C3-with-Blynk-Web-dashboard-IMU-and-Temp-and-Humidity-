@@ -1,0 +1,704 @@
+{
+  "job_id": "0f0c8947-6cea-49c7-8f1b-121ac1509c73",
+  "document_id": "e78e63af-0742-420d-9cbb-b9c76367bc5d",
+  "saved_at": "2026-10-15T05:17:57.752Z",
+  "categories": [
+    {
+      "id": "cat-1",
+      "name": "ESP32-C3 Sensor Hardware & Processing",
+      "criteria": [
+        {
+          "requirement_id": "HW-001",
+          "verifiability": "inspection",
+          "criterion": "The firmware build configuration identifies the target board as ESP32-C3-DevKitM-1.",
+          "observable": "The board and target identifiers in the firmware build configuration",
+          "observable_kind": "artifact",
+          "preconditions": [],
+          "procedure": [
+            "Inspect the firmware build configuration used for the delivered build.",
+            "Read the configured board and MCU target identifiers."
+          ],
+          "expected": "The configured board is ESP32-C3-DevKitM-1 and the target MCU is ESP32-C3.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-001",
+          "verifiability": "inspection",
+          "criterion": "The MPU6050 I²C SCL configuration assigns GPIO2.",
+          "observable": "The SCL GPIO assignment in the MPU6050 I²C configuration",
+          "observable_kind": "state",
+          "preconditions": [],
+          "procedure": [
+            "Inspect the firmware's MPU6050 I²C pin configuration.",
+            "Read the configured SCL GPIO."
+          ],
+          "expected": "SCL is assigned to GPIO2.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-002",
+          "verifiability": "inspection",
+          "criterion": "The MPU6050 I²C SDA configuration assigns GPIO3.",
+          "observable": "The SDA GPIO assignment in the MPU6050 I²C configuration",
+          "observable_kind": "state",
+          "preconditions": [],
+          "procedure": [
+            "Inspect the firmware's MPU6050 I²C pin configuration.",
+            "Read the configured SDA GPIO."
+          ],
+          "expected": "SDA is assigned to GPIO3.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-003",
+          "verifiability": "inspection",
+          "criterion": "The DHT22 data configuration assigns GPIO1, identified as board pin 10.",
+          "observable": "The DHT22 data GPIO assignment and its board-pin mapping",
+          "observable_kind": "state",
+          "preconditions": [],
+          "procedure": [
+            "Inspect the DHT22 data-pin configuration.",
+            "Inspect the board pin mapping for GPIO1."
+          ],
+          "expected": "DHT22 data is assigned to GPIO1, and GPIO1 is identified as board pin 10.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-001",
+          "verifiability": "hardware",
+          "criterion": "A successful DHT22 read produces a temperature measurement.",
+          "observable": "The temperature result returned or reported by the DHT22 read path",
+          "observable_kind": "state",
+          "preconditions": [
+            "A DHT22 is connected to the configured data pin and is able to provide a valid measurement."
+          ],
+          "procedure": [
+            "Run the firmware with the connected DHT22.",
+            "Request a DHT22 measurement.",
+            "Inspect the temperature result."
+          ],
+          "expected": "The read path produces a numeric temperature measurement rather than a read failure or an absent value.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-002",
+          "verifiability": "hardware",
+          "criterion": "A successful DHT22 read produces a humidity measurement.",
+          "observable": "The humidity result returned or reported by the DHT22 read path",
+          "observable_kind": "state",
+          "preconditions": [
+            "A DHT22 is connected to the configured data pin and is able to provide a valid measurement."
+          ],
+          "procedure": [
+            "Run the firmware with the connected DHT22.",
+            "Request a DHT22 measurement.",
+            "Inspect the humidity result."
+          ],
+          "expected": "The read path produces a numeric humidity measurement rather than a read failure or an absent value.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-003",
+          "verifiability": "hardware",
+          "criterion": "The MPU6050 measurement output reports numeric acceleration values for all three axes with m/s² units.",
+          "observable": "The reported MPU6050 acceleration fields and their unit labels",
+          "observable_kind": "log_output",
+          "preconditions": [
+            "An MPU6050 is connected and initialized."
+          ],
+          "procedure": [
+            "Run the firmware with the connected MPU6050.",
+            "Acquire and report an acceleration measurement.",
+            "Inspect the reported X, Y, and Z acceleration fields and units."
+          ],
+          "expected": "Numeric X, Y, and Z acceleration values are reported, and each is identified in m/s².",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-004",
+          "verifiability": "host",
+          "criterion": "The orientation calculation returns gyroscope-derived angle values represented in degrees.",
+          "observable": "The orientation calculation's angle outputs and unit representation",
+          "observable_kind": "state",
+          "preconditions": [
+            "The orientation calculation can be called with supplied gyroscope samples or fake sensor I/O."
+          ],
+          "procedure": [
+            "Call the orientation calculation with a gyroscope sample sequence that produces a nonzero orientation change.",
+            "Inspect the calculated angle outputs and their unit representation."
+          ],
+          "expected": "The calculation produces numeric orientation angle values, and those values are represented in degrees.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-005",
+          "verifiability": "host",
+          "criterion": "With the same simulated motion sequence, accelerometer-assisted tilt correction yields a smaller tilt error than gyroscope-only integration.",
+          "observable": "The corrected and gyroscope-only tilt estimates compared with the simulated reference tilt",
+          "observable_kind": "state",
+          "preconditions": [
+            "The orientation logic can be called with injected gyroscope and accelerometer samples.",
+            "The simulated sequence includes a known tilt reference and conditions under which accelerometer correction applies."
+          ],
+          "procedure": [
+            "Feed the same simulated sequence to the accelerometer-assisted orientation calculation and a gyroscope-only baseline.",
+            "Compare each resulting tilt estimate with the simulated reference tilt."
+          ],
+          "expected": "The absolute tilt error of the accelerometer-assisted estimate is lower than the absolute tilt error of the gyroscope-only estimate.",
+          "source": "derived",
+          "rationale": "The acceptance criterion says accelerometer-assisted correction is used to reduce drift in applicable orientation axes. Comparing tilt error against a gyroscope-only baseline checks that the correction reduces drift without assuming a particular filter, parameter value, or numerical threshold.",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-007",
+          "verifiability": "host",
+          "criterion": "A failed sensor read does not terminate the measurement loop, which performs a subsequent measurement-loop iteration.",
+          "observable": "The measurement-loop iteration count or a subsequent iteration's mock sensor-read call",
+          "observable_kind": "state",
+          "preconditions": [
+            "The measurement loop can be exercised with fake sensor I/O.",
+            "A fake sensor read is configured to fail on one iteration."
+          ],
+          "procedure": [
+            "Start the measurement loop with the fake sensor read configured to fail.",
+            "Allow the failed read to occur.",
+            "Check that the loop reaches a later iteration."
+          ],
+          "expected": "At least one measurement-loop iteration occurs after the failed sensor read.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-010",
+          "verifiability": "inspection",
+          "criterion": "The orientation update does not use accelerometer-derived correction to establish yaw, and its yaw state remains capable of changing through gyroscope integration.",
+          "observable": "The yaw update and accelerometer-correction terms in the orientation algorithm",
+          "observable_kind": "state",
+          "preconditions": [],
+          "procedure": [
+            "Inspect the orientation algorithm's yaw update.",
+            "Trace whether accelerometer-derived correction is applied to yaw.",
+            "Check whether gyroscope integration can change the yaw state over time."
+          ],
+          "expected": "No accelerometer-derived correction establishes an absolute yaw reference, and gyroscope integration can cause the yaw state to drift over time.",
+          "source": "derived",
+          "rationale": "The stated acceptance criterion rules out claiming absolute yaw from accelerometer correction and explicitly allows Z-orientation drift. Inspecting the yaw update checks both points without treating the permitted drift as a failure.",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-015",
+          "verifiability": "inspection",
+          "criterion": "The requirements and verification baseline assign no MPU6050 I²C address, calibration procedure, or orientation-filter parameter value as a PRD-specified value.",
+          "observable": "The MPU6050 address, calibration, and filter-parameter statements in the requirements and verification baseline",
+          "observable_kind": "artifact",
+          "preconditions": [],
+          "procedure": [
+            "Inspect the requirements and verification baseline for MPU6050 I²C address assumptions.",
+            "Inspect them for a mandated sensor calibration procedure.",
+            "Inspect them for mandated orientation-filter parameter values."
+          ],
+          "expected": "None of the three items is specified as a value or procedure supplied by the PRD.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-011",
+          "verifiability": "host",
+          "criterion": "The MPU6050 initialization call occurs before the first MPU6050 sensor-data acquisition attempt.",
+          "observable": "The ordered initialization and acquisition events recorded by fake MPU6050 I/O",
+          "observable_kind": "state",
+          "preconditions": [
+            "The initialization and measurement flow can be exercised with fake I²C I/O."
+          ],
+          "procedure": [
+            "Run the MPU6050 startup and measurement flow with fake I²C I/O that records events.",
+            "Inspect the order of the initialization event and the first sensor-data acquisition event."
+          ],
+          "expected": "The MPU6050 initialization event precedes the first sensor-data acquisition attempt.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-012",
+          "verifiability": "host",
+          "criterion": "The DHT22 initialization call occurs before the first temperature or humidity read attempt.",
+          "observable": "The ordered initialization and measurement events recorded by fake DHT22 I/O",
+          "observable_kind": "state",
+          "preconditions": [
+            "The DHT22 initialization and measurement flow can be exercised with fake I/O."
+          ],
+          "procedure": [
+            "Run the DHT22 startup and measurement flow with fake I/O that records events.",
+            "Inspect the order of the initialization event and the first temperature or humidity read attempt."
+          ],
+          "expected": "The DHT22 initialization event precedes the first temperature and humidity read attempt.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        }
+      ]
+    },
+    {
+      "id": "cat-2",
+      "name": "Wi-Fi Connectivity & Credential Management",
+      "criteria": [
+        {
+          "requirement_id": "SEC-001",
+          "verifiability": "inspection",
+          "criterion": "The firmware obtains the Wi-Fi and Blynk credential values from configuration-secret inputs.",
+          "observable": "The configuration-secret declarations and the firmware configuration references that supply Wi-Fi and Blynk credentials.",
+          "observable_kind": "state",
+          "preconditions": [],
+          "procedure": [
+            "Inspect the project configuration and secret-input declarations.",
+            "Trace the Wi-Fi and Blynk credential configuration references to their inputs."
+          ],
+          "expected": "Both Wi-Fi and Blynk credential values are supplied through configuration secrets.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "SEC-002",
+          "verifiability": "inspection",
+          "criterion": "No password or authentication-token value appears in the commits of the public source repository.",
+          "observable": "The contents of the public repository's committed files and commit history.",
+          "observable_kind": "state",
+          "preconditions": [
+            "The public source repository and its commit history are available for inspection."
+          ],
+          "procedure": [
+            "Inspect the public repository's committed files and commit history.",
+            "Check for committed password and authentication-token values."
+          ],
+          "expected": "No password or authentication-token value appears in any inspected commit.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "SEC-003",
+          "verifiability": "inspection",
+          "criterion": "No actual credential value appears in a source file intended for sharing or version control.",
+          "observable": "The contents of source files intended for sharing or version control.",
+          "observable_kind": "state",
+          "preconditions": [],
+          "procedure": [
+            "Identify the source files intended for sharing or version control.",
+            "Inspect those files for actual Wi-Fi or Blynk credential values."
+          ],
+          "expected": "No actual credential value appears in the inspected source files.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-008",
+          "verifiability": "hardware",
+          "criterion": "The measurement-loop iteration count increases after the network is disconnected.",
+          "observable": "The measurement-loop iteration count, or an observable measurement event emitted by each loop iteration.",
+          "observable_kind": "state",
+          "preconditions": [
+            "The measurement loop is running and producing observable measurements.",
+            "The device is connected to the network."
+          ],
+          "procedure": [
+            "Record the measurement-loop count or latest measurement event.",
+            "Disconnect the network while the device is running.",
+            "Check the count or measurement events again."
+          ],
+          "expected": "At least one additional measurement-loop iteration is observed after the disconnection.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-009",
+          "verifiability": "hardware",
+          "criterion": "After connectivity is restored, the device reconnects and a subsequent measurement is received by Blynk.",
+          "observable": "The device's connection state and the subsequent measurement recorded by Blynk.",
+          "observable_kind": "state",
+          "preconditions": [
+            "The device is running and publishing measurements before the interruption.",
+            "A network interruption occurs.",
+            "Network connectivity becomes available again."
+          ],
+          "procedure": [
+            "Interrupt network connectivity and confirm that publishing is interrupted.",
+            "Restore network connectivity.",
+            "Observe the device reconnecting and check Blynk for a measurement published after reconnection."
+          ],
+          "expected": "The device reconnects, and Blynk receives at least one measurement after connectivity is restored.",
+          "source": "derived",
+          "rationale": "The requirement's statement says to reconnect and resume publishing when possible, and its postcondition says publishing resumes after reconnection. Observing a received post-reconnection measurement provides a concrete check of both recovery and resumed publishing; the at-least-one event is the minimum observable evidence of resumption.",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        }
+      ]
+    },
+    {
+      "id": "cat-3",
+      "name": "Blynk IoT Integration & Data Publishing",
+      "criteria": [
+        {
+          "requirement_id": "IF-004",
+          "verifiability": "inspection",
+          "criterion": "The Blynk configuration defines Template ID `TMPL3VjCwAzY1` and template name `ESPInterface`.",
+          "observable": "Blynk template ID and template name in the firmware configuration",
+          "observable_kind": "artifact",
+          "preconditions": [],
+          "procedure": [
+            "Inspect the firmware's Blynk configuration."
+          ],
+          "expected": "Template ID is `TMPL3VjCwAzY1` and template name is `ESPInterface`.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-013",
+          "verifiability": "hardware",
+          "criterion": "With the supplied configuration and available Wi-Fi, the firmware reaches the Blynk IoT connected state.",
+          "observable": "Blynk connection state reported by the firmware on the ESP32-C3",
+          "observable_kind": "state",
+          "preconditions": [
+            "The supplied Blynk and Wi-Fi configuration is available.",
+            "The ESP32-C3 has access to the configured Wi-Fi network and Blynk IoT."
+          ],
+          "procedure": [
+            "Load the supplied configuration onto the board.",
+            "Power the board and allow it to connect.",
+            "Read the firmware's Blynk connection state."
+          ],
+          "expected": "The Blynk connection state is connected over Wi-Fi.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "FR-006",
+          "verifiability": "host",
+          "criterion": "Each publishing cycle emits all eight sensor values to their assigned Blynk datastreams, and consecutive cycles begin 2000 ms apart.",
+          "observable": "Recorded virtual-pin writes and their timestamps from the publisher's fake I/O callbacks",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable publishing logic is callable with fake sensor inputs, a fake clock, and a recording Blynk I/O callback."
+          ],
+          "procedure": [
+            "Provide eight distinct sensor values to the publisher.",
+            "Run the publisher for at least two cycles while advancing the fake clock.",
+            "Inspect the recorded writes and cycle timestamps."
+          ],
+          "expected": "Each cycle records one write for each assigned datastream V0–V7, and consecutive cycle start timestamps differ by 2000 ms.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-005",
+          "verifiability": "host",
+          "criterion": "Publishing a temperature reading records that reading on Blynk virtual pin V0.",
+          "observable": "Virtual-pin number and value passed to the fake Blynk write callback",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable publishing logic is callable with a fake Blynk write callback."
+          ],
+          "procedure": [
+            "Provide a distinct temperature reading to the publishing logic.",
+            "Capture the Blynk write callback arguments.",
+            "Check the recorded pin and value."
+          ],
+          "expected": "The temperature reading is written to V0.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-006",
+          "verifiability": "host",
+          "criterion": "Publishing a humidity reading records that reading on Blynk virtual pin V1.",
+          "observable": "Virtual-pin number and value passed to the fake Blynk write callback",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable publishing logic is callable with a fake Blynk write callback."
+          ],
+          "procedure": [
+            "Provide a distinct humidity reading to the publishing logic.",
+            "Capture the Blynk write callback arguments.",
+            "Check the recorded pin and value."
+          ],
+          "expected": "The humidity reading is written to V1.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-007",
+          "verifiability": "host",
+          "criterion": "Publishing an accelerometer X reading records that reading on Blynk virtual pin V2.",
+          "observable": "Virtual-pin number and value passed to the fake Blynk write callback",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable publishing logic is callable with a fake Blynk write callback."
+          ],
+          "procedure": [
+            "Provide a distinct accelerometer X reading to the publishing logic.",
+            "Capture the Blynk write callback arguments.",
+            "Check the recorded pin and value."
+          ],
+          "expected": "The accelerometer X reading is written to V2.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-008",
+          "verifiability": "host",
+          "criterion": "Publishing an accelerometer Y reading records that reading on Blynk virtual pin V3.",
+          "observable": "Virtual-pin number and value passed to the fake Blynk write callback",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable publishing logic is callable with a fake Blynk write callback."
+          ],
+          "procedure": [
+            "Provide a distinct accelerometer Y reading to the publishing logic.",
+            "Capture the Blynk write callback arguments.",
+            "Check the recorded pin and value."
+          ],
+          "expected": "The accelerometer Y reading is written to V3.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-009",
+          "verifiability": "host",
+          "criterion": "Publishing an accelerometer Z reading records that reading on Blynk virtual pin V4.",
+          "observable": "Virtual-pin number and value passed to the fake Blynk write callback",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable publishing logic is callable with a fake Blynk write callback."
+          ],
+          "procedure": [
+            "Provide a distinct accelerometer Z reading to the publishing logic.",
+            "Capture the Blynk write callback arguments.",
+            "Check the recorded pin and value."
+          ],
+          "expected": "The accelerometer Z reading is written to V4.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-010",
+          "verifiability": "host",
+          "criterion": "Publishing a gyroscope orientation X reading records that reading on Blynk virtual pin V5.",
+          "observable": "Virtual-pin number and value passed to the fake Blynk write callback",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable publishing logic is callable with a fake Blynk write callback."
+          ],
+          "procedure": [
+            "Provide a distinct gyroscope orientation X reading to the publishing logic.",
+            "Capture the Blynk write callback arguments.",
+            "Check the recorded pin and value."
+          ],
+          "expected": "The gyroscope orientation X reading is written to V5.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-011",
+          "verifiability": "host",
+          "criterion": "Publishing a gyroscope orientation Y reading records that reading on Blynk virtual pin V6.",
+          "observable": "Virtual-pin number and value passed to the fake Blynk write callback",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable publishing logic is callable with a fake Blynk write callback."
+          ],
+          "procedure": [
+            "Provide a distinct gyroscope orientation Y reading to the publishing logic.",
+            "Capture the Blynk write callback arguments.",
+            "Check the recorded pin and value."
+          ],
+          "expected": "The gyroscope orientation Y reading is written to V6.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-012",
+          "verifiability": "host",
+          "criterion": "Publishing a gyroscope orientation Z reading records that reading on Blynk virtual pin V7.",
+          "observable": "Virtual-pin number and value passed to the fake Blynk write callback",
+          "observable_kind": "state",
+          "preconditions": [
+            "The portable publishing logic is callable with a fake Blynk write callback."
+          ],
+          "procedure": [
+            "Provide a distinct gyroscope orientation Z reading to the publishing logic.",
+            "Capture the Blynk write callback arguments.",
+            "Check the recorded pin and value."
+          ],
+          "expected": "The gyroscope orientation Z reading is written to V7.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "NFR-001",
+          "verifiability": "host",
+          "criterion": "During normal operation, consecutive sensor-sampling events and consecutive publishing cycles each occur 2000 ms apart.",
+          "observable": "Timestamps of sample and publish callbacks recorded by a fake-clock unit test",
+          "observable_kind": "state",
+          "preconditions": [
+            "The normal-operation loop is callable with a fake clock and recording sample and publish callbacks."
+          ],
+          "procedure": [
+            "Run the normal-operation loop for at least three sampling and publishing events while advancing the fake clock.",
+            "Record the timestamps of each sample and publish callback.",
+            "Compare consecutive timestamps within each event sequence."
+          ],
+          "expected": "Every pair of consecutive sample timestamps differs by 2000 ms, and every pair of consecutive publishing-cycle timestamps differs by 2000 ms.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        },
+        {
+          "requirement_id": "IF-014",
+          "verifiability": "inspection",
+          "criterion": "The firmware's Blynk code writes values to the existing datastreams and contains no operation that creates a dashboard.",
+          "observable": "Blynk write operations and dashboard-creation operations in the firmware source",
+          "observable_kind": "artifact",
+          "preconditions": [
+            "The existing dashboard and datastreams are available for reference."
+          ],
+          "procedure": [
+            "Inspect the firmware's Blynk integration code.",
+            "Identify the operations that send values to datastreams.",
+            "Check whether the firmware contains an operation that creates a dashboard."
+          ],
+          "expected": "The code sends values to the existing datastreams, and no dashboard-creation operation is present.",
+          "source": "explicit",
+          "rationale": "",
+          "blocked_reason": null,
+          "review_state": "accepted",
+          "user_note": null,
+          "superseded_criterion": null
+        }
+      ]
+    }
+  ]
+}

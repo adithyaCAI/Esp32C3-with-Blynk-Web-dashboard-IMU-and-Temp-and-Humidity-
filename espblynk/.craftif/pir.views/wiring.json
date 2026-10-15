@@ -1,0 +1,531 @@
+{
+  "schema_version": "3.0.0",
+  "view": "wiring",
+  "revision": "dd27c29280fdf19d7f01078072c75532",
+  "graph_version": 15,
+  "generated_at_ms": 1792056788124,
+  "graph": {
+    "schema_version": 1,
+    "id": "pir_espblynk",
+    "name": "espblynk topology",
+    "description": "The DHT22 GPIO use is identified, but its physical pin number cannot be verified from the provided snippets.",
+    "board_id": "ESP32-C3-DevKitM-1",
+    "nodes": [
+      {
+        "id": "boot",
+        "node_type": "system_init",
+        "label": "Boot / app_main",
+        "description": "Bootstraps firmware startup and initializes core subsystems.",
+        "ports": [
+          {
+            "id": "boot_boot_out_0",
+            "name": "boot_out",
+            "direction": "output",
+            "datatype": "execution",
+            "required": true,
+            "multiplicity": "one"
+          }
+        ],
+        "properties": {
+          "target": "esp32c3"
+        },
+        "execution": {},
+        "visual": {
+          "x": 0.0,
+          "y": 300.0,
+          "layer": 0
+        }
+      },
+      {
+        "id": "sensor_service",
+        "node_type": "rtos_task",
+        "label": "Task sensor_service",
+        "description": "Executes RTOS loop logic for sensor_service.",
+        "ports": [
+          {
+            "id": "sensor_service_exec_in_0",
+            "name": "exec_in",
+            "direction": "input",
+            "datatype": "execution",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "sensor_service_trigger_in_1",
+            "name": "trigger_in",
+            "direction": "input",
+            "datatype": "event",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "sensor_service_exec_out_2",
+            "name": "exec_out",
+            "direction": "output",
+            "datatype": "execution",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "sensor_service_data_out_3",
+            "name": "data_out",
+            "direction": "output",
+            "datatype": "signal",
+            "required": false,
+            "multiplicity": "one"
+          }
+        ],
+        "properties": {
+          "task_name": "sensor_service",
+          "priority": 5,
+          "stack_size": 4096,
+          "period_ms": 0.0
+        },
+        "execution": {
+          "priority": 5,
+          "stack_size": 4096,
+          "period_ms": 0.0
+        },
+        "visual": {
+          "x": 140.0,
+          "y": 394.0,
+          "layer": 1
+        }
+      },
+      {
+        "id": "osal_task_entry",
+        "node_type": "rtos_task",
+        "label": "Task osal_task_entry",
+        "description": "Executes RTOS loop logic for osal_task_entry.",
+        "ports": [
+          {
+            "id": "osal_task_entry_exec_in_0",
+            "name": "exec_in",
+            "direction": "input",
+            "datatype": "execution",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "osal_task_entry_trigger_in_1",
+            "name": "trigger_in",
+            "direction": "input",
+            "datatype": "event",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "osal_task_entry_exec_out_2",
+            "name": "exec_out",
+            "direction": "output",
+            "datatype": "execution",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "osal_task_entry_data_out_3",
+            "name": "data_out",
+            "direction": "output",
+            "datatype": "signal",
+            "required": false,
+            "multiplicity": "one"
+          }
+        ],
+        "properties": {
+          "task_name": "osal_task_entry",
+          "priority": 5,
+          "stack_size": 4096,
+          "period_ms": 0.0
+        },
+        "execution": {
+          "priority": 5,
+          "stack_size": 4096,
+          "period_ms": 0.0
+        },
+        "visual": {
+          "x": 140.0,
+          "y": 190.0,
+          "layer": 1
+        }
+      },
+      {
+        "id": "task",
+        "node_type": "rtos_task",
+        "label": "Task task",
+        "description": "Executes RTOS loop logic for task.",
+        "ports": [
+          {
+            "id": "task_exec_in_0",
+            "name": "exec_in",
+            "direction": "input",
+            "datatype": "execution",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "task_trigger_in_1",
+            "name": "trigger_in",
+            "direction": "input",
+            "datatype": "event",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "task_exec_out_2",
+            "name": "exec_out",
+            "direction": "output",
+            "datatype": "execution",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "task_data_out_3",
+            "name": "data_out",
+            "direction": "output",
+            "datatype": "signal",
+            "required": false,
+            "multiplicity": "one"
+          }
+        ],
+        "properties": {
+          "task_name": "task",
+          "priority": 5,
+          "stack_size": 4096,
+          "period_ms": 0.0
+        },
+        "execution": {
+          "priority": 5,
+          "stack_size": 4096,
+          "period_ms": 0.0
+        },
+        "visual": {
+          "x": 188.0,
+          "y": 292.0,
+          "layer": 1
+        }
+      },
+      {
+        "id": "blynk_publish",
+        "node_type": "rtos_task",
+        "label": "Task blynk_publish",
+        "description": "Executes RTOS loop logic for blynk_publish.",
+        "ports": [
+          {
+            "id": "blynk_publish_exec_in_0",
+            "name": "exec_in",
+            "direction": "input",
+            "datatype": "execution",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "blynk_publish_trigger_in_1",
+            "name": "trigger_in",
+            "direction": "input",
+            "datatype": "event",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "blynk_publish_exec_out_2",
+            "name": "exec_out",
+            "direction": "output",
+            "datatype": "execution",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "blynk_publish_data_out_3",
+            "name": "data_out",
+            "direction": "output",
+            "datatype": "signal",
+            "required": false,
+            "multiplicity": "one"
+          }
+        ],
+        "properties": {
+          "task_name": "blynk_publish",
+          "priority": 5,
+          "stack_size": 4096,
+          "period_ms": 0.0
+        },
+        "execution": {
+          "priority": 5,
+          "stack_size": 4096,
+          "period_ms": 0.0
+        },
+        "visual": {
+          "x": 468.0,
+          "y": 292.0,
+          "layer": 3
+        }
+      },
+      {
+        "id": "mpu6050_i2c",
+        "node_type": "i2c_device",
+        "label": "MPU6050 I2C Device",
+        "description": "Represents an I2C peripheral with mapped bus pins.",
+        "ports": [
+          {
+            "id": "mpu6050_i2c_exec_in_0",
+            "name": "exec_in",
+            "direction": "input",
+            "datatype": "execution",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "mpu6050_i2c_data_in_1",
+            "name": "data_in",
+            "direction": "input",
+            "datatype": "signal",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "mpu6050_i2c_data_out_2",
+            "name": "data_out",
+            "direction": "output",
+            "datatype": "signal",
+            "required": false,
+            "multiplicity": "one"
+          }
+        ],
+        "properties": {
+          "address": "(0x68U)",
+          "clock_hz": 100000
+        },
+        "execution": {},
+        "visual": {
+          "x": 328.0,
+          "y": 205.0,
+          "layer": 2
+        }
+      },
+      {
+        "id": "wifi",
+        "node_type": "wifi_manager",
+        "label": "WiFi",
+        "description": "Manages Wi-Fi connectivity and network state.",
+        "ports": [
+          {
+            "id": "wifi_exec_in_0",
+            "name": "exec_in",
+            "direction": "input",
+            "datatype": "execution",
+            "required": true,
+            "multiplicity": "one"
+          },
+          {
+            "id": "wifi_network_out_1",
+            "name": "network_out",
+            "direction": "output",
+            "datatype": "network",
+            "required": true,
+            "multiplicity": "one"
+          }
+        ],
+        "properties": {
+          "mode": "station"
+        },
+        "execution": {},
+        "visual": {
+          "x": 328.0,
+          "y": 395.0,
+          "layer": 2
+        }
+      },
+      {
+        "id": "storage_manager",
+        "node_type": "storage_manager",
+        "label": "Storage Manager",
+        "description": "Persists runtime state and configuration data.",
+        "ports": [
+          {
+            "id": "storage_manager_exec_in_0",
+            "name": "exec_in",
+            "direction": "input",
+            "datatype": "execution",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "storage_manager_data_in_1",
+            "name": "data_in",
+            "direction": "input",
+            "datatype": "signal",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "storage_manager_data_out_2",
+            "name": "data_out",
+            "direction": "output",
+            "datatype": "signal",
+            "required": false,
+            "multiplicity": "one"
+          }
+        ],
+        "properties": {
+          "backend": "nvs",
+          "namespace": "app"
+        },
+        "execution": {},
+        "visual": {
+          "x": 140.0,
+          "y": 598.0,
+          "layer": 1
+        }
+      },
+      {
+        "id": "event_handler",
+        "node_type": "event_handler",
+        "label": "Event Handler",
+        "description": "Queues and dispatches asynchronous firmware events.",
+        "ports": [
+          {
+            "id": "event_handler_event_in_0",
+            "name": "event_in",
+            "direction": "input",
+            "datatype": "event",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "event_handler_event_out_1",
+            "name": "event_out",
+            "direction": "output",
+            "datatype": "event",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "event_handler_exec_out_2",
+            "name": "exec_out",
+            "direction": "output",
+            "datatype": "execution",
+            "required": false,
+            "multiplicity": "one"
+          }
+        ],
+        "properties": {
+          "event_id": -1
+        },
+        "execution": {},
+        "visual": {
+          "x": 140.0,
+          "y": 0.0,
+          "layer": 1
+        }
+      },
+      {
+        "id": "http_client",
+        "node_type": "http_client",
+        "label": "HTTP",
+        "description": "Performs outbound HTTP requests for remote services.",
+        "ports": [
+          {
+            "id": "http_client_exec_in_0",
+            "name": "exec_in",
+            "direction": "input",
+            "datatype": "execution",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "http_client_data_in_1",
+            "name": "data_in",
+            "direction": "input",
+            "datatype": "signal",
+            "required": false,
+            "multiplicity": "one"
+          },
+          {
+            "id": "http_client_data_out_2",
+            "name": "data_out",
+            "direction": "output",
+            "datatype": "signal",
+            "required": false,
+            "multiplicity": "one"
+          }
+        ],
+        "properties": {
+          "method": "GET",
+          "timeout_ms": 5000
+        },
+        "execution": {},
+        "visual": {
+          "x": 608.0,
+          "y": 299.0,
+          "layer": 4
+        }
+      }
+    ],
+    "connections": [
+      [
+        "boot_boot_out_0",
+        "sensor_service_exec_in_0"
+      ],
+      [
+        "boot_boot_out_0",
+        "osal_task_entry_exec_in_0"
+      ],
+      [
+        "boot_boot_out_0",
+        "task_exec_in_0"
+      ],
+      [
+        "boot_boot_out_0",
+        "blynk_publish_exec_in_0"
+      ],
+      [
+        "boot_boot_out_0",
+        "mpu6050_i2c_exec_in_0"
+      ],
+      [
+        "boot_boot_out_0",
+        "wifi_exec_in_0"
+      ],
+      [
+        "boot_boot_out_0",
+        "storage_manager_exec_in_0"
+      ],
+      [
+        "boot_boot_out_0",
+        "event_handler_event_in_0"
+      ],
+      [
+        "boot_boot_out_0",
+        "http_client_exec_in_0"
+      ],
+      [
+        "sensor_service_data_out_3",
+        "mpu6050_i2c_exec_in_0"
+      ],
+      [
+        "sensor_service_data_out_3",
+        "wifi_exec_in_0"
+      ],
+      [
+        "sensor_service_data_out_3",
+        "blynk_publish_trigger_in_1"
+      ],
+      [
+        "wifi_network_out_1",
+        "blynk_publish_exec_in_0"
+      ],
+      [
+        "blynk_publish_data_out_3",
+        "http_client_data_in_1"
+      ]
+    ],
+    "layout": {
+      "orientation": "",
+      "node_width": 0.0,
+      "layer_gap": 0.0,
+      "node_gap": 0.0
+    }
+  },
+  "title": "Wiring Topology",
+  "authored_by_model": false
+}

@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Requirement traceability</title>
+<style>
+:root {
+  --ink: #14171a; --dim: #5b6570; --line: #dfe3e8; --bg: #ffffff; --panel: #f6f7f9;
+  --ok: #157347; --warn: #9a5b00; --bad: #a5262b; --accent: #1f4e79;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ink: #e6e9ec; --dim: #98a3ae; --line: #2c333a; --bg: #14171a; --panel: #1c2126;
+          --ok: #4ec27f; --warn: #e0a75a; --bad: #f08a8f; --accent: #8ab4e8; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding: 2.5rem 1.5rem 5rem; background: var(--bg); color: var(--ink);
+  font: 15px/1.55 -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 1180px; margin: 0 auto; }
+h1 { font-size: 1.7rem; margin: 0 0 .35rem; letter-spacing: -.01em; }
+h2 { font-size: 1.15rem; margin: 2.5rem 0 .3rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line); }
+h3 { font-size: .95rem; margin: 1.6rem 0 .4rem; }
+p { margin: .5rem 0; }
+.sub { color: var(--dim); font-size: .875rem; }
+.lead { background: var(--panel); border: 1px solid var(--line); border-radius: 6px;
+  padding: .9rem 1.1rem; margin: 1.2rem 0; }
+.lead p:first-child { margin-top: 0; } .lead p:last-child { margin-bottom: 0; }
+.void { border-color: var(--bad); }
+.void strong { color: var(--bad); }
+.meta { color: var(--dim); font-size: .85rem; margin: .2rem 0 .8rem; }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: .84rem; }
+th, td { text-align: left; vertical-align: top; padding: .45rem .6rem;
+  border-bottom: 1px solid var(--line); }
+th { color: var(--dim); font-weight: 600; font-size: .74rem; text-transform: uppercase;
+  letter-spacing: .04em; white-space: nowrap; }
+td code { font-size: .82em; }
+code { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; }
+.none { color: var(--dim); }
+.pill { display: inline-block; padding: .1rem .45rem; border-radius: 999px;
+  font-size: .72rem; font-weight: 600; white-space: nowrap; border: 1px solid currentColor; }
+.s-verified { color: var(--ok); } .s-tests { color: var(--accent); }
+.s-impl { color: var(--warn); } .s-none { color: var(--bad); }
+.flag { color: var(--bad); font-size: .72rem; display: block; margin-top: .2rem; }
+ul { margin: .4rem 0; padding-left: 1.2rem; } li { margin: .18rem 0; }
+</style>
+</head><body><main>
+<h1>Requirement traceability</h1>
+<p class="sub">Generated 2026-10-15T09:31:17.962388400+00:00 · specification frozen 2026-10-15T09:31:16.874Z</p>
+<div class="lead"><p>32 of 32 requirements have code recorded against them — 8 with tests passing, 0 with tests written but not passing, 24 implemented with no test at all. 0 have nothing recorded.</p>
+</div>
+<div class="lead"><p><strong>Host unit tests.</strong> No host unit-test results have been imported for this project; nothing here rests on host test evidence.</p></div>
+<p class="sub">Derived from what the agent recorded with <code>requirement_trace</code> and from the frozen specification. An em dash means nothing was recorded, which is not the same as nothing being needed.</p>
+<h2>ESP32-C3 Sensor Hardware &amp; Processing</h2>
+<p class="meta">gate: deferred · tasks: 5/5 done · recorded in: 9c114c52-e013-4db0-a607-5f4ab23d95e9</p>
+<div class="scroll"><table><thead><tr>
+<th>Req</th>
+<th>Statement</th>
+<th>Verified by</th>
+<th>Acceptance criteria</th>
+<th>Files</th>
+<th>Symbols</th>
+<th>Tests</th>
+<th>Status</th>
+</tr></thead><tbody>
+<tr><td><code>HW-001</code></td><td>The firmware shall target the ESP32-C3-DevKitM-1 board.</td><td>inspection</td><td>The firmware build configuration identifies the target board as ESP32-C3-DevKitM-1. (expected: The configured board is ESP32-C3-DevKitM-1 and the target MCU is ESP32-C3.)</td><td><code>firmware/bsp/board.h<br>firmware/configs/app_config.h<br>sources/PRD.md</code></td><td><code>BOARD_NAME</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-verified">verified</span><span class="flag">by inspection</span></td></tr>
+<tr><td><code>IF-001</code></td><td>The firmware shall use GPIO2 as the MPU6050 I²C SCL signal.</td><td>inspection</td><td>The MPU6050 I²C SCL configuration assigns GPIO2. (expected: SCL is assigned to GPIO2.)</td><td><code>firmware/configs/app_config.h<br>firmware/platforms/esp32/sensor_platform.c</code></td><td><code>sensor_if_mpu6050_init</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>IF-002</code></td><td>The firmware shall use GPIO3 as the MPU6050 I²C SDA signal.</td><td>inspection</td><td>The MPU6050 I²C SDA configuration assigns GPIO3. (expected: SDA is assigned to GPIO3.)</td><td><code>firmware/configs/app_config.h<br>firmware/platforms/esp32/sensor_platform.c</code></td><td><code>sensor_if_mpu6050_init</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>IF-003</code></td><td>The firmware shall use GPIO1 (board pin 10) as the DHT22 data signal.</td><td>inspection</td><td>The DHT22 data configuration assigns GPIO1, identified as board pin 10. (expected: DHT22 data is assigned to GPIO1, and GPIO1 is identified as board pin 10.)</td><td><code>firmware/bsp/board.h<br>firmware/configs/app_config.h<br>sources/PRD.md</code></td><td><code>BOARD_NAME</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-verified">verified</span><span class="flag">by inspection</span></td></tr>
+<tr><td><code>FR-001</code></td><td>The firmware shall read temperature from the DHT22.</td><td>hardware / instrument</td><td>A successful DHT22 read produces a temperature measurement. (expected: The read path produces a numeric temperature measurement rather than a read failure or an absent value.)</td><td><code>firmware/interfaces/sensor_if.h<br>firmware/platforms/esp32/sensor_platform.c<br>firmware/services/sensor_service.c</code></td><td><code>sensor_if_dht22_read<br>sensor_if_mpu6050_read<br>sensor_service_task</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-verified">verified</span><span class="flag">observed on hardware</span></td></tr>
+<tr><td><code>FR-002</code></td><td>The firmware shall read humidity from the DHT22.</td><td>hardware / instrument</td><td>A successful DHT22 read produces a humidity measurement. (expected: The read path produces a numeric humidity measurement rather than a read failure or an absent value.)</td><td><code>firmware/interfaces/sensor_if.h<br>firmware/platforms/esp32/sensor_platform.c<br>firmware/services/sensor_service.c</code></td><td><code>sensor_if_dht22_read<br>sensor_if_mpu6050_read<br>sensor_service_task</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-verified">verified</span><span class="flag">observed on hardware</span></td></tr>
+<tr><td><code>FR-003</code></td><td>The firmware shall read MPU6050 acceleration and report the acceleration for each axis in m/s².</td><td>hardware / instrument</td><td>The MPU6050 measurement output reports numeric acceleration values for all three axes with m/s² units. (expected: Numeric X, Y, and Z acceleration values are reported, and each is identified in m/s².)</td><td><code>firmware/interfaces/sensor_if.h<br>firmware/platforms/esp32/sensor_platform.c<br>firmware/services/sensor_service.c</code></td><td><code>sensor_if_dht22_read<br>sensor_if_mpu6050_read<br>sensor_service_task</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-verified">verified</span><span class="flag">observed on hardware</span></td></tr>
+<tr><td><code>FR-004</code></td><td>The firmware shall calculate gyroscope-derived orientation angles in degrees.</td><td>host test</td><td>The orientation calculation returns gyroscope-derived angle values represented in degrees. (expected: The calculation produces numeric orientation angle values, and those values are represented in degrees.)</td><td><code>firmware/modules/orientation/orientation.c<br>firmware/modules/orientation/orientation.h</code></td><td><code>orientation_init<br>orientation_update</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>FR-005</code></td><td>The firmware shall use accelerometer-assisted correction to reduce drift in orientation, including tilt axes where applicable.</td><td>host test</td><td>With the same simulated motion sequence, accelerometer-assisted tilt correction yields a smaller tilt error than gyroscope-only integration. (expected: The absolute tilt error of the accelerometer-assisted estimate is lower than the absolute tilt error of the gyroscope-only estimate.)</td><td><code>firmware/modules/orientation/orientation.c<br>firmware/modules/orientation/orientation.h</code></td><td><code>orientation_init<br>orientation_update</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>FR-007</code></td><td>The firmware shall handle sensor read failures without terminating the measurement loop.</td><td>host test</td><td>A failed sensor read does not terminate the measurement loop, which performs a subsequent measurement-loop iteration. (expected: At least one measurement-loop iteration occurs after the failed sensor read.)</td><td><code>firmware/interfaces/sensor_if.h<br>firmware/platforms/esp32/sensor_platform.c<br>firmware/services/sensor_service.c</code></td><td><code>sensor_if_dht22_init<br>sensor_if_dht22_read<br>sensor_if_mpu6050_init<br>sensor_if_mpu6050_read<br>sensor_service_task</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>FR-010</code></td><td>The firmware shall not use accelerometer correction as an absolute yaw reference, and shall allow the Z orientation to drift over time.</td><td>inspection</td><td>The orientation update does not use accelerometer-derived correction to establish yaw, and its yaw state remains capable of changing through gyroscope integration. (expected: No accelerometer-derived correction establishes an absolute yaw reference, and gyroscope integration can cause the yaw state to drift over time.)</td><td><code>firmware/modules/orientation/orientation.c</code></td><td><code>orientation_update</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-verified">verified</span><span class="flag">by inspection</span></td></tr>
+<tr><td><code>IF-015</code></td><td>The firmware shall treat the MPU6050 I²C address, sensor calibration procedure, and orientation-filter parameters as unspecified by this PRD.</td><td>inspection</td><td>The requirements and verification baseline assign no MPU6050 I²C address, calibration procedure, or orientation-filter parameter value as a PRD-specified value. (expected: None of the three items is specified as a value or procedure supplied by the PRD.)</td><td><code>firmware/bsp/board.h<br>firmware/configs/app_config.h<br>sources/PRD.md</code></td><td><code>BOARD_NAME</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-verified">verified</span><span class="flag">by inspection</span></td></tr>
+<tr><td><code>FR-011</code></td><td>The firmware shall initialize the MPU6050 before acquiring its sensor data.</td><td>host test</td><td>The MPU6050 initialization call occurs before the first MPU6050 sensor-data acquisition attempt. (expected: The MPU6050 initialization event precedes the first sensor-data acquisition attempt.)</td><td><code>firmware/interfaces/sensor_if.h<br>firmware/platforms/esp32/sensor_platform.c<br>firmware/services/sensor_service.c</code></td><td><code>sensor_if_dht22_init<br>sensor_if_dht22_read<br>sensor_if_mpu6050_init<br>sensor_if_mpu6050_read<br>sensor_service_task</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>FR-012</code></td><td>The firmware shall initialize the DHT22 before attempting to read its measurements.</td><td>host test</td><td>The DHT22 initialization call occurs before the first temperature or humidity read attempt. (expected: The DHT22 initialization event precedes the first temperature and humidity read attempt.)</td><td><code>firmware/interfaces/sensor_if.h<br>firmware/platforms/esp32/sensor_platform.c<br>firmware/services/sensor_service.c</code></td><td><code>sensor_if_dht22_init<br>sensor_if_dht22_read<br>sensor_if_mpu6050_init<br>sensor_if_mpu6050_read<br>sensor_service_task</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+</tbody></table></div>
+<p class="meta">Observed on the board</p><ul>
+<li><code>FR-001</code>, <code>FR-002</code>, <code>FR-003</code> — <span class="sub">After configuring the user-confirmed SCL GPIO3/SDA GPIO2, a fresh deploy showed MPU6050 initialized at address 0x68 and valid readings. DHT22 reported 26.1 C and humidity 97.5–98.3%; accelerometer axes reported numeric values with m/s^2 units, latest (-0.128, -5.692, -8.040) m/s^2.</span></li>
+<li><code>FR-010</code> — <span class="sub">The implementation integrates gyroscope Z rate into yaw and applies accelerometer correction only to roll and pitch. During the 15-second stationary capture yaw moved from about -0.01 to -6.67 degrees.</span></li>
+</ul>
+<p class="meta">Notes recorded with these traces</p><ul>
+<li><code>HW-001</code>, <code>IF-003</code>, <code>IF-015</code> — <span class="sub">The project build target is esp32c3 and BOARD_NAME is ESP32-C3-DevKitM-1; GPIO1 is configured for DHT22 and the board pin 10 mapping is declared. PRD.md states MPU6050 address, calibration procedure, and filter parameters are unspecified; 0x68 is only the implementation's default.</span></li>
+<li><code>IF-001</code>, <code>IF-002</code> — <span class="sub">Frozen requirements expect SCL GPIO2/SDA GPIO3. User confirmed actual wiring SCL GPIO3/SDA GPIO2 and explicitly chose firmware matching actual wiring. Configuration now follows the user's wiring, so frozen IF-001/IF-002 are not met; the conflict is preserved and reported, not redefined.</span></li>
+<li><code>FR-004</code>, <code>FR-005</code> — <span class="sub">Pure portable complementary filter returns roll/pitch/yaw in degrees. Host criteria remain implemented until the unit-test results are imported.</span></li>
+<li><code>FR-007</code>, <code>FR-011</code>, <code>FR-012</code> — <span class="sub">Host-checkable retry/loop and initialization-order criteria have no imported unit-test results; build and hardware observation do not verify them as host criteria.</span></li>
+</ul>
+<h2>Wi-Fi Connectivity &amp; Credential Management</h2>
+<p class="meta">gate: deferred · tasks: 3/3 done · recorded in: 9c114c52-e013-4db0-a607-5f4ab23d95e9</p>
+<div class="scroll"><table><thead><tr>
+<th>Req</th>
+<th>Statement</th>
+<th>Verified by</th>
+<th>Acceptance criteria</th>
+<th>Files</th>
+<th>Symbols</th>
+<th>Tests</th>
+<th>Status</th>
+</tr></thead><tbody>
+<tr><td><code>SEC-001</code></td><td>The firmware shall receive Wi-Fi and Blynk credentials as configuration secrets.</td><td>inspection</td><td>The firmware obtains the Wi-Fi and Blynk credential values from configuration-secret inputs. (expected: Both Wi-Fi and Blynk credential values are supplied through configuration secrets.)</td><td><code>firmware/configs/app_config.h<br>firmware/configs/app_secrets.example.h<br>firmware/platforms/esp32/network_platform.c</code></td><td><code>APP_BLYNK_AUTH_TOKEN<br>APP_WIFI_PASSWORD<br>APP_WIFI_SSID<br>network_if_start</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>SEC-002</code></td><td>Passwords and authentication tokens shall not be committed to a public source repository.</td><td>inspection</td><td>No password or authentication-token value appears in the commits of the public source repository. (expected: No password or authentication-token value appears in any inspected commit.)</td><td><code>.gitignore<br>firmware/configs/app_secrets.example.h</code></td><td><code><span class="none">—</span></code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>SEC-003</code></td><td>The firmware shall keep credentials out of source files intended for sharing or version control.</td><td>inspection</td><td>No actual credential value appears in a source file intended for sharing or version control. (expected: No actual credential value appears in the inspected source files.)</td><td><code>.gitignore<br>firmware/configs/app_config.h<br>firmware/configs/app_secrets.example.h</code></td><td><code>APP_BLYNK_AUTH_TOKEN<br>APP_WIFI_PASSWORD<br>APP_WIFI_SSID</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>FR-008</code></td><td>The firmware shall handle network disconnections without terminating the measurement loop.</td><td>hardware / instrument</td><td>The measurement-loop iteration count increases after the network is disconnected. (expected: At least one additional measurement-loop iteration is observed after the disconnection.)</td><td><code>firmware/platforms/esp32/network_platform.c<br>firmware/services/sensor_service.c</code></td><td><code>network_if_is_connected<br>sensor_service_task</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-verified">verified</span><span class="flag">observed on hardware</span></td></tr>
+<tr><td><code>FR-009</code></td><td>The firmware shall reconnect to the network and resume publishing when possible after a connectivity interruption.</td><td>hardware / instrument</td><td>After connectivity is restored, the device reconnects and a subsequent measurement is received by Blynk. (expected: The device reconnects, and Blynk receives at least one measurement after connectivity is restored.)</td><td><code>firmware/platforms/esp32/network_platform.c<br>firmware/services/sensor_service.c</code></td><td><code>network_event_handler<br>sensor_service_task</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+</tbody></table></div>
+<p class="meta">Observed on the board</p><ul>
+<li><code>FR-008</code> — <span class="sub">During an outage, network event logs reported disconnection while the sensor loop continued to emit temperature, humidity, acceleration and orientation snapshots at the 2-second report cadence. A fresh capture after final changes showed the configured placeholder-secret path deliberately stayed offline while measurements continued.</span></li>
+</ul>
+<p class="meta">Notes recorded with these traces</p><ul>
+<li><code>SEC-001</code> — <span class="sub">Wi-Fi SSID/password are sourced from configuration-secret headers, and the firmware rejects placeholder Wi-Fi values and runs offline. Blynk token remains an example placeholder and is not consumed by runtime code in this category, so the Blynk credential portion of SEC-001 is unmet here.</span></li>
+<li><code>SEC-002</code> — <span class="sub">No version control repository or commit history is available in this workspace, so the public repository commit-history criterion cannot be verified.</span></li>
+<li><code>SEC-003</code> — <span class="sub">Inspected source uses only explicit SET_* placeholders; the actual secret header path is excluded in .gitignore. No local actual app_secrets.h was found in workspace search.</span></li>
+<li><code>FR-009</code> — <span class="sub">Wi-Fi disconnect events call esp_wifi_connect() asynchronously through the event loop. No configured real credentials or successful restored-IP/Blynk delivery have been observed, so recovery-and-receipt criterion is not verified.</span></li>
+</ul>
+<h2>Blynk IoT Integration &amp; Data Publishing</h2>
+<p class="meta">gate: not decided · tasks: 3/3 done · recorded in: 9c114c52-e013-4db0-a607-5f4ab23d95e9</p>
+<div class="scroll"><table><thead><tr>
+<th>Req</th>
+<th>Statement</th>
+<th>Verified by</th>
+<th>Acceptance criteria</th>
+<th>Files</th>
+<th>Symbols</th>
+<th>Tests</th>
+<th>Status</th>
+</tr></thead><tbody>
+<tr><td><code>IF-004</code></td><td>The firmware shall use Blynk Template ID TMPL3VjCwAzY1 and template name ESPInterface.</td><td>inspection</td><td>The Blynk configuration defines Template ID `TMPL3VjCwAzY1` and template name `ESPInterface`. (expected: Template ID is `TMPL3VjCwAzY1` and template name is `ESPInterface`.)</td><td><code>firmware/configs/app_config.h<br>firmware/platforms/esp32/telemetry_platform.c</code></td><td><code>APP_BLYNK_TEMPLATE_ID<br>APP_BLYNK_TEMPLATE_NAME<br>telemetry_if_init</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>IF-013</code></td><td>The firmware shall connect to Blynk IoT over Wi-Fi using the supplied configuration.</td><td>hardware / instrument</td><td>With the supplied configuration and available Wi-Fi, the firmware reaches the Blynk IoT connected state. (expected: The Blynk connection state is connected over Wi-Fi.)</td><td><code>firmware/platforms/esp32/network_platform.c<br>firmware/platforms/esp32/telemetry_platform.c<br>firmware/services/telemetry_service.c</code></td><td><code>network_if_is_connected<br>telemetry_if_init</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>FR-006</code></td><td>The firmware shall publish all eight sensor values to their assigned Blynk datastreams every two seconds.</td><td>host test</td><td>Each publishing cycle emits all eight sensor values to their assigned Blynk datastreams, and consecutive cycles begin 2000 ms apart. (expected: Each cycle records one write for each assigned datastream V0–V7, and consecutive cycle start timestamps differ by 2000 ms.)</td><td><code>firmware/modules/telemetry/telemetry_mapping.c<br>firmware/modules/telemetry/telemetry_mapping.h<br>firmware/platforms/esp32/telemetry_platform.c<br>firmware/services/sensor_service.c<br>firmware/services/telemetry_service.c</code></td><td><code>sensor_service_task<br>telemetry_if_publish<br>telemetry_mapping_build_batch<br>telemetry_service_publish</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>IF-005</code></td><td>The firmware shall publish temperature to Blynk virtual pin V0.</td><td>host test</td><td>Publishing a temperature reading records that reading on Blynk virtual pin V0. (expected: The temperature reading is written to V0.)</td><td><code>firmware/modules/telemetry/telemetry_mapping.c<br>firmware/modules/telemetry/telemetry_mapping.h<br>firmware/platforms/esp32/telemetry_platform.c<br>firmware/services/sensor_service.c<br>firmware/services/telemetry_service.c</code></td><td><code>sensor_service_task<br>telemetry_if_publish<br>telemetry_mapping_build_batch<br>telemetry_service_publish</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>IF-006</code></td><td>The firmware shall publish humidity to Blynk virtual pin V1.</td><td>host test</td><td>Publishing a humidity reading records that reading on Blynk virtual pin V1. (expected: The humidity reading is written to V1.)</td><td><code>firmware/modules/telemetry/telemetry_mapping.c<br>firmware/modules/telemetry/telemetry_mapping.h<br>firmware/platforms/esp32/telemetry_platform.c<br>firmware/services/sensor_service.c<br>firmware/services/telemetry_service.c</code></td><td><code>sensor_service_task<br>telemetry_if_publish<br>telemetry_mapping_build_batch<br>telemetry_service_publish</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>IF-007</code></td><td>The firmware shall publish accelerometer X to Blynk virtual pin V2.</td><td>host test</td><td>Publishing an accelerometer X reading records that reading on Blynk virtual pin V2. (expected: The accelerometer X reading is written to V2.)</td><td><code>firmware/modules/telemetry/telemetry_mapping.c<br>firmware/modules/telemetry/telemetry_mapping.h<br>firmware/platforms/esp32/telemetry_platform.c<br>firmware/services/sensor_service.c<br>firmware/services/telemetry_service.c</code></td><td><code>sensor_service_task<br>telemetry_if_publish<br>telemetry_mapping_build_batch<br>telemetry_service_publish</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>IF-008</code></td><td>The firmware shall publish accelerometer Y to Blynk virtual pin V3.</td><td>host test</td><td>Publishing an accelerometer Y reading records that reading on Blynk virtual pin V3. (expected: The accelerometer Y reading is written to V3.)</td><td><code>firmware/modules/telemetry/telemetry_mapping.c<br>firmware/modules/telemetry/telemetry_mapping.h<br>firmware/platforms/esp32/telemetry_platform.c<br>firmware/services/sensor_service.c<br>firmware/services/telemetry_service.c</code></td><td><code>sensor_service_task<br>telemetry_if_publish<br>telemetry_mapping_build_batch<br>telemetry_service_publish</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>IF-009</code></td><td>The firmware shall publish accelerometer Z to Blynk virtual pin V4.</td><td>host test</td><td>Publishing an accelerometer Z reading records that reading on Blynk virtual pin V4. (expected: The accelerometer Z reading is written to V4.)</td><td><code>firmware/modules/telemetry/telemetry_mapping.c<br>firmware/modules/telemetry/telemetry_mapping.h<br>firmware/platforms/esp32/telemetry_platform.c<br>firmware/services/sensor_service.c<br>firmware/services/telemetry_service.c</code></td><td><code>sensor_service_task<br>telemetry_if_publish<br>telemetry_mapping_build_batch<br>telemetry_service_publish</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>IF-010</code></td><td>The firmware shall publish gyroscope orientation X to Blynk virtual pin V5.</td><td>host test</td><td>Publishing a gyroscope orientation X reading records that reading on Blynk virtual pin V5. (expected: The gyroscope orientation X reading is written to V5.)</td><td><code>firmware/modules/telemetry/telemetry_mapping.c<br>firmware/modules/telemetry/telemetry_mapping.h<br>firmware/platforms/esp32/telemetry_platform.c<br>firmware/services/sensor_service.c<br>firmware/services/telemetry_service.c</code></td><td><code>sensor_service_task<br>telemetry_if_publish<br>telemetry_mapping_build_batch<br>telemetry_service_publish</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>IF-011</code></td><td>The firmware shall publish gyroscope orientation Y to Blynk virtual pin V6.</td><td>host test</td><td>Publishing a gyroscope orientation Y reading records that reading on Blynk virtual pin V6. (expected: The gyroscope orientation Y reading is written to V6.)</td><td><code>firmware/modules/telemetry/telemetry_mapping.c<br>firmware/modules/telemetry/telemetry_mapping.h<br>firmware/platforms/esp32/telemetry_platform.c<br>firmware/services/sensor_service.c<br>firmware/services/telemetry_service.c</code></td><td><code>sensor_service_task<br>telemetry_if_publish<br>telemetry_mapping_build_batch<br>telemetry_service_publish</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>IF-012</code></td><td>The firmware shall publish gyroscope orientation Z to Blynk virtual pin V7.</td><td>host test</td><td>Publishing a gyroscope orientation Z reading records that reading on Blynk virtual pin V7. (expected: The gyroscope orientation Z reading is written to V7.)</td><td><code>firmware/modules/telemetry/telemetry_mapping.c<br>firmware/modules/telemetry/telemetry_mapping.h<br>firmware/platforms/esp32/telemetry_platform.c<br>firmware/services/sensor_service.c<br>firmware/services/telemetry_service.c</code></td><td><code>sensor_service_task<br>telemetry_if_publish<br>telemetry_mapping_build_batch<br>telemetry_service_publish</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>NFR-001</code></td><td>The firmware shall maintain the two-second sampling and publishing cadence during normal operation.</td><td>host test</td><td>During normal operation, consecutive sensor-sampling events and consecutive publishing cycles each occur 2000 ms apart. (expected: Every pair of consecutive sample timestamps differs by 2000 ms, and every pair of consecutive publishing-cycle timestamps differs by 2000 ms.)</td><td><code>firmware/configs/app_config.h<br>firmware/modules/telemetry/telemetry_mapping.c<br>firmware/services/sensor_service.c</code></td><td><code>sensor_service_task<br>telemetry_mapping_build_batch</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+<tr><td><code>IF-014</code></td><td>The firmware shall send values to the existing dashboard and datastreams; it shall not create the dashboard.</td><td>inspection</td><td>The firmware's Blynk code writes values to the existing datastreams and contains no operation that creates a dashboard. (expected: The code sends values to the existing datastreams, and no dashboard-creation operation is present.)</td><td><code>firmware/modules/telemetry/telemetry_mapping.c<br>firmware/platforms/esp32/telemetry_platform.c</code></td><td><code>telemetry_if_publish<br>telemetry_mapping_build_batch</code></td><td><code><span class="none">—</span></code></td><td><span class="pill s-impl">implemented, untested</span></td></tr>
+</tbody></table></div>
+<p class="meta">Notes recorded with these traces</p><ul>
+<li><code>IF-004</code> — <span class="sub">Configuration declares Template ID TMPL3VjCwAzY1 and template name ESPInterface. Build passed. Hardware unavailable for this category checkpoint.</span></li>
+<li><code>IF-013</code> — <span class="sub">Connection requires configured Wi-Fi and Blynk secret headers. Existing local secret file is absent and the committed example contains placeholders only; connected state was not verifiable because the board was unavailable.</span></li>
+<li><code>FR-006</code>, <code>IF-005</code>, <code>IF-006</code>, <code>IF-007</code>, <code>IF-008</code>, <code>IF-009</code>, <code>IF-010</code>, <code>IF-011</code>, <code>IF-012</code> — <span class="sub">Pure mapping assigns temperature/humidity/acceleration/orientation values to V0-V7. Sensor/publish scheduling uses 2000 ms configuration, and HTTPS request work is queued to a separate task. Host-checkable requirements remain implemented until unit tests run; no board was available for newly-observable behavior.</span></li>
+<li><code>NFR-001</code> — <span class="sub">Configured cadence is 2000 ms; host verification requires the later unit-test run.</span></li>
+<li><code>IF-014</code> — <span class="sub">Firmware uses Blynk's batch datastream update endpoint and virtual pin parameters V0-V7; no dashboard creation code is present. This inspection criterion was not independently re-read after final implementation.</span></li>
+</ul>
+<h2>Gaps</h2>
+<p class="sub">Listed rather than omitted. A matrix showing only what was built cannot be told apart from one showing full coverage.</p>
+<h3>Board checks owed (2)</h3>
+<p class="sub">The worklist for whoever has the hardware, and the counterpart of the host-test list below. A `hardware` or `target` criterion with nothing observed: no host test and no reading of the code will ever close it.</p>
+<ul>
+<li><code>FR-009</code> <span class="sub">(Wi-Fi Connectivity &amp; Credential Management)</span></li>
+<li><code>IF-013</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+</ul>
+<h3>Host tests you could write (15)</h3>
+<p class="sub">A `host` acceptance criterion and no test cited. The only requirements a unit test can cover — see the next block for the rest. They are tested at the end, from Artifacts -&gt; Unit Tests.</p>
+<ul>
+<li><code>FR-004</code> <span class="sub">(ESP32-C3 Sensor Hardware &amp; Processing)</span></li>
+<li><code>FR-005</code> <span class="sub">(ESP32-C3 Sensor Hardware &amp; Processing)</span></li>
+<li><code>FR-007</code> <span class="sub">(ESP32-C3 Sensor Hardware &amp; Processing)</span></li>
+<li><code>FR-011</code> <span class="sub">(ESP32-C3 Sensor Hardware &amp; Processing)</span></li>
+<li><code>FR-012</code> <span class="sub">(ESP32-C3 Sensor Hardware &amp; Processing)</span></li>
+<li><code>FR-006</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>IF-005</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>IF-006</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>IF-007</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>IF-008</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>IF-009</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>IF-010</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>IF-011</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>IF-012</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>NFR-001</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+</ul>
+<h3>Acceptance needs non-host evidence (17)</h3>
+<p class="sub">No host acceptance criterion is recorded, so a unit test cannot close these: they need the board or inspection evidence specified here.</p>
+<ul>
+<li><code>HW-001</code> — checked by inspection <span class="sub">· ESP32-C3 Sensor Hardware &amp; Processing</span></li>
+<li><code>IF-001</code> — checked by inspection <span class="sub">· ESP32-C3 Sensor Hardware &amp; Processing</span></li>
+<li><code>IF-002</code> — checked by inspection <span class="sub">· ESP32-C3 Sensor Hardware &amp; Processing</span></li>
+<li><code>IF-003</code> — checked by inspection <span class="sub">· ESP32-C3 Sensor Hardware &amp; Processing</span></li>
+<li><code>FR-001</code> — checked by hardware / instrument <span class="sub">· ESP32-C3 Sensor Hardware &amp; Processing</span></li>
+<li><code>FR-002</code> — checked by hardware / instrument <span class="sub">· ESP32-C3 Sensor Hardware &amp; Processing</span></li>
+<li><code>FR-003</code> — checked by hardware / instrument <span class="sub">· ESP32-C3 Sensor Hardware &amp; Processing</span></li>
+<li><code>FR-010</code> — checked by inspection <span class="sub">· ESP32-C3 Sensor Hardware &amp; Processing</span></li>
+<li><code>IF-015</code> — checked by inspection <span class="sub">· ESP32-C3 Sensor Hardware &amp; Processing</span></li>
+<li><code>SEC-001</code> — checked by inspection <span class="sub">· Wi-Fi Connectivity &amp; Credential Management</span></li>
+<li><code>SEC-002</code> — checked by inspection <span class="sub">· Wi-Fi Connectivity &amp; Credential Management</span></li>
+<li><code>SEC-003</code> — checked by inspection <span class="sub">· Wi-Fi Connectivity &amp; Credential Management</span></li>
+<li><code>FR-008</code> — checked by hardware / instrument <span class="sub">· Wi-Fi Connectivity &amp; Credential Management</span></li>
+<li><code>FR-009</code> — checked by hardware / instrument <span class="sub">· Wi-Fi Connectivity &amp; Credential Management</span></li>
+<li><code>IF-004</code> — checked by inspection <span class="sub">· Blynk IoT Integration &amp; Data Publishing</span></li>
+<li><code>IF-013</code> — checked by hardware / instrument <span class="sub">· Blynk IoT Integration &amp; Data Publishing</span></li>
+<li><code>IF-014</code> — checked by inspection <span class="sub">· Blynk IoT Integration &amp; Data Publishing</span></li>
+</ul>
+<h3>Implemented, never tested (24)</h3>
+<p class="sub">Code exists and no test is recorded against it.</p>
+<ul>
+<li><code>IF-001</code> <span class="sub">(ESP32-C3 Sensor Hardware &amp; Processing)</span></li>
+<li><code>IF-002</code> <span class="sub">(ESP32-C3 Sensor Hardware &amp; Processing)</span></li>
+<li><code>FR-004</code> <span class="sub">(ESP32-C3 Sensor Hardware &amp; Processing)</span></li>
+<li><code>FR-005</code> <span class="sub">(ESP32-C3 Sensor Hardware &amp; Processing)</span></li>
+<li><code>FR-007</code> <span class="sub">(ESP32-C3 Sensor Hardware &amp; Processing)</span></li>
+<li><code>FR-011</code> <span class="sub">(ESP32-C3 Sensor Hardware &amp; Processing)</span></li>
+<li><code>FR-012</code> <span class="sub">(ESP32-C3 Sensor Hardware &amp; Processing)</span></li>
+<li><code>SEC-001</code> <span class="sub">(Wi-Fi Connectivity &amp; Credential Management)</span></li>
+<li><code>SEC-002</code> <span class="sub">(Wi-Fi Connectivity &amp; Credential Management)</span></li>
+<li><code>SEC-003</code> <span class="sub">(Wi-Fi Connectivity &amp; Credential Management)</span></li>
+<li><code>FR-009</code> <span class="sub">(Wi-Fi Connectivity &amp; Credential Management)</span></li>
+<li><code>IF-004</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>IF-013</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>FR-006</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>IF-005</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>IF-006</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>IF-007</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>IF-008</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>IF-009</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>IF-010</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>IF-011</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>IF-012</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>NFR-001</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+<li><code>IF-014</code> <span class="sub">(Blynk IoT Integration &amp; Data Publishing)</span></li>
+</ul>
+</main></body></html>
